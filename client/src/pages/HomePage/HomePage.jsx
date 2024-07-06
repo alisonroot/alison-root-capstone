@@ -1,8 +1,11 @@
+import "./HomePage.scss";
+import Thermometer from "../../components/Thermometer/Thermometer";
+
 function HomePage() {
   return (
-    <div>
-      <></>
-    </div>
+    <main>
+      <Thermometer />
+    </main>
   );
 }
 

@@ -2,3 +2,12 @@
 @use "./styles/partials/variables" as *;
 @use "./styles/partials/mixins" as *;
 @use "./styles/partials/globals" as *;
+
+#root {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $background-cream;
+}
