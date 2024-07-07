@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1,
+    "name": "STOP",
+    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias, nostrum impedit. Id atque adipisci eos quidem repellat ullam perferendis, sint error repellendus cumque praesentium deserunt, ex, fugiat quos dolorum labore.",
+    "intensity": 4
+  },
+  {
+    "id": 2,
+    "name": "ACCEPTS",
+    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias, nostrum impedit. Id atque adipisci eos quidem repellat ullam perferendis, sint error repellendus cumque praesentium deserunt, ex, fugiat quos dolorum labore.",
+    "intensity": 4
+  },
+  {
+    "id": 3,
+    "name": "Radical Acceptance",
+    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias, nostrum impedit. Id atque adipisci eos quidem repellat ullam perferendis, sint error repellendus cumque praesentium deserunt, ex, fugiat quos dolorum labore.",
+    "intensity": 3
+  },
+  {
+    "id": 4,
+    "name": "Opposite Action",
+    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias, nostrum impedit. Id atque adipisci eos quidem repellat ullam perferendis, sint error repellendus cumque praesentium deserunt, ex, fugiat quos dolorum labore.",
+    "intensity": 2,
+    "category2": false
+  },
+  {
+    "id": 5,
+    "name": "SOLVED",
+    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias, nostrum impedit. Id atque adipisci eos quidem repellat ullam perferendis, sint error repellendus cumque praesentium deserunt, ex, fugiat quos dolorum labore.",
+    "intensity": 2,
+    "category2": true
+  },
+  {
+    "id": 6,
+    "name": "Expanding Awareness",
+    "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias, nostrum impedit. Id atque adipisci eos quidem repellat ullam perferendis, sint error repellendus cumque praesentium deserunt, ex, fugiat quos dolorum labore.",
+    "intensity": 1
+  }
+]

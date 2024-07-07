@@ -41,7 +41,6 @@ const StyledSlider = styled(BaseSlider)(
     border-radius: 43px;
     background-color: currentColor;
     opacity: 0.5;
-    background: rgb(0,188,242);
     background: linear-gradient(0deg, rgba(0,188,242,1) 0%, rgba(250,186,44,1) 50%, rgba(243,72,26,1) 80%, rgba(255,9,9,1) 100%);
     z-index: 1;
     display: flex;
@@ -157,7 +156,7 @@ export default function Thermometer() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        transform: "scale(2)",
+        transform: "scale(2.5)",
         transformOrigin: "center",
       }}
     >

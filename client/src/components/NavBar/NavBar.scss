@@ -1,8 +1,54 @@
+@use "../../styles/partials/variables" as *;
+
 .nav-bar {
-  height: 5rem;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: last baseline;
+  background-color: #f8e4be;
+  padding: 1rem;
+  padding-top: 0;
+  z-index: 5;
+  height: 60px;
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 70px;
+
+    &:link,
+    &:hover,
+    &:active,
+    &:visited {
+      text-decoration: none;
+    }
+  }
 
   &__icon {
-    font-size: large;
-    color: black;
+    height: 25px;
+  }
+
+  &__icon-large {
+    height: 50px;
+  }
+
+  &__text {
+    color: $almost-black;
+    font-size: 13px;
+    line-height: 14px;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
+
+  &__rounded {
+    height: 115px;
+    width: 100px;
+    background-color: #f8e4be;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
