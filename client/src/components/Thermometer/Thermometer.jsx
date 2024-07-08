@@ -12,18 +12,20 @@ const orange = "#F3481A";
 const red = "#FF0909";
 
 const getTrackColor = (value) => {
-  if (value <= 12.5) return blueGreen;
-  if (value <= 25) return green;
+  // if (value <= 12.5) return blueGreen;
+  if (value <= 15) return green;
   if (value <= 35) return yellowGreen;
-  if (value <= 50) return yellow;
-  if (value <= 60) return yellowOrange;
-  if (value <= 75) return lightOrange;
-  if (value <= 90) return orange;
+  // if (value <= 45) return yellow;
+  if (value <= 60) return yellow;
+  // if (value <= 60) return yellowOrange;
+  if (value <= 85) return yellowOrange;
+  // if (value <= 75) return lightOrange;
+  // if (value <= 90) return orange;
   return red;
 };
 
 const StyledSlider = styled(BaseSlider)(
-  ({ theme, value }) => `
+  ({ value }) => `
   height: 190px;
   width: 40px;
   display: flex;
@@ -141,22 +143,28 @@ const ReflectionLowerLine = styled(ReflectionLine)`
   height: 20px; // Height of the lower line
 `;
 
-export default function Thermometer() {
+export default function Thermometer({ intensity, onChange }) {
   const [value, setValue] = React.useState(35);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    onChange(newValue);
   };
+
+  React.useEffect(() => {
+    setValue(intensity);
+  }, [intensity]);
 
   return (
     <Box
-      className="thermometer-container"
       sx={{
-        position: "relative",
+        position: "absolute",
+        left: "50%",
+        top: "50%",
+        transform: "translate(-50%, -50%) scale(2.5)",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        transform: "scale(2.5)",
         transformOrigin: "center",
       }}
     >

@@ -5,7 +5,7 @@
   display: flex;
   justify-content: space-around;
   align-items: last baseline;
-  background-color: #f8e4be;
+  background-color: $nav-cream;
   padding: 1rem;
   padding-top: 0;
   z-index: 5;
@@ -42,10 +42,10 @@
   }
 
   &__rounded {
-    height: 115px;
+    height: 105px;
     width: 100px;
-    background-color: #f8e4be;
     border-radius: 50%;
+    background-color: $nav-cream;
     position: absolute;
     bottom: 0;
     left: 50%;

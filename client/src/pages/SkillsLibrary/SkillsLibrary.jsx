@@ -24,7 +24,6 @@ function SkillsLibrary() {
       const { data } = await axios.get(
         `${API_URL}/skills/category/${category}`
       );
-      console.log(data);
       setSkillsList(data);
     } catch (error) {
       console.error("Couldn't get list of skills", error);
