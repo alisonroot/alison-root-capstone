@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import "./FilterQuestion.scss";
+import FitFactsModal from "../../components/FitFactsModal/FitFactsModal";
 
 const questions = [
   {
@@ -78,6 +79,7 @@ function FilterQuestion() {
   const { questionId } = useParams();
   const navigate = useNavigate();
   const [questionData, setQuestionData] = useState(null);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   useEffect(() => {
     const question = questions.find((q) => q.id === questionId);
@@ -85,6 +87,15 @@ function FilterQuestion() {
       setQuestionData(question);
     }
   }, [questionId]);
+
+  const openFitFactsModal = () => {
+    console.log("Opening fit facts modal");
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
 
   if (!questionData) {
     return <span>Loading question</span>;
@@ -107,9 +118,10 @@ function FilterQuestion() {
       {questionData.extraButton && (
         <Button
           buttonText={questionData.extraButtonText}
-          onClick={() => navigate(questionData.extraButtonPath)}
+          onClick={openFitFactsModal}
         />
       )}
+      <FitFactsModal isOpen={modalIsOpen} closeModal={closeModal} />
     </div>
   );
 }
