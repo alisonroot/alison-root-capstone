@@ -14,7 +14,7 @@
     {
       "id": "2",
       "explanation":
-        "You chose low emotional intensity. A quick breathing or grounding exercise may help.",
+        "You chose low emotional intensity. A quick breathing or grounding exercise may help you feel better.",
       "question": "Would you prefer breathing exercises or grounding techniques?",
       "button1": "Breathing",
       "button1path": "/skills/category/breathing",
