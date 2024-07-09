@@ -1,0 +1,43 @@
+.filter-question {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    height: 100%;
+
+    &__container {
+        padding-top: 5rem;
+        display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    }
+
+    &__explanation-text {
+        font-weight: 500;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    &__question-text {
+        font-weight: 600;
+        margin: 2rem 0 4rem;
+        font-size: 26px;
+        text-align: center;
+    }
+
+    &__button-container {
+        display: flex;
+        width: 100%;
+        padding-bottom: 2rem;
+    }
+
+    &__button {
+        width: inherit;
+        margin: 1rem;
+    }
+
+    &__modal-button {
+        width: 50%;
+    }
+}

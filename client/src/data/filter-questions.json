@@ -1,0 +1,71 @@
+[
+    {
+      "id": "1",
+      "explanation":
+        "Great to hear you're feeling fine! This is a great time to strengthen your mindfulness skills.",
+      "question":
+        "Would you prefer to do a meditation or incorporate mindfulness into an activity?",
+      "button1": "Take a break",
+      "button1path": "/skills/category/break",
+      "button2": "Incorporate",
+      "button2path": "/skills/category/incorporate",
+      "extraButton": false
+    },
+    {
+      "id": "2",
+      "explanation":
+        "You chose low emotional intensity. A quick breathing or grounding exercise may help you feel better.",
+      "question": "Would you prefer breathing exercises or grounding techniques?",
+      "button1": "Breathing",
+      "button1path": "/skills/category/breathing",
+      "button2": "Grounding",
+      "button2path": "/skills/category/grounding",
+      "extraButton": false
+    },
+    {
+      "id": "3",
+      "explanation":
+        "By better understanding your feelings, you'll be able to make better decisions.",
+      "question": "Does this emotion fit the facts of the situation?",
+      "button1": "Yes",
+      "button1path": "/question/6",
+      "button2": "No",
+      "button2path": "/skills/category/nofit",
+      "extraButton": true,
+      "extraButtonText": "I'm not sure",
+      "extraButtonPath": "FitFactsModal"
+    },
+    {
+      "id": "4",
+      "explanation": "Filler text",
+      "question": "Are you able to change the situation?",
+      "button1": "Yes",
+      "button1path": "/skills/category/control",
+      "button2": "No",
+      "button2path": "/skills/category/nocontrol",
+      "extraButton": false
+    },
+    {
+      "id": "5",
+      "explanation": "Filler text",
+      "question": "Are you concerned about your emotions or your actions?",
+      "button1": "Emotions",
+      "button1path": "/skills/category/emotion",
+      "button2": "Actions",
+      "button2path": "/skills/category/behaviour",
+      "extraButton": false
+    },
+    {
+      "id": "6",
+      "explanation": "Now think about the following:",
+      "question": "Is acting on this emotion effective?",
+      "button1": "Yes",
+      "button1path": "/skills/category/act",
+      "button2": "No",
+      "button2path": "/skills/category/noact",
+      "extraButton": true,
+      "extraButtonText": "I'm not sure",
+      "extraButtonPath": "/skills/category/evaluate"
+    }
+  ]
+  
