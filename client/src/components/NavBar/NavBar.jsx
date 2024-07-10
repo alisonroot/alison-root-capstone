@@ -1,60 +1,82 @@
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
 import "./NavBar.scss";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import HomeIcon from "@mui/icons-material/Home";
+import LibraryBooksOutlinedIcon from "@mui/icons-material/LibraryBooksOutlined";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
+import BookmarksOutlinedIcon from "@mui/icons-material/BookmarksOutlined";
 import BookmarksIcon from "@mui/icons-material/Bookmarks";
-import DeviceThermostatIcon from "@mui/icons-material/DeviceThermostat";
+import EventNoteOutlinedIcon from "@mui/icons-material/EventNoteOutlined";
 import EventNoteIcon from "@mui/icons-material/EventNote";
+import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
 import ListIcon from "@mui/icons-material/List";
-
-import LibraryIcon from "../../assets/icons/library.svg";
-import FavouritesIcon from "../../assets/icons/bookmark.svg";
-import ThermometerIcon from "../../assets/icons/thermometer8.svg";
-import PlanningIcon from "../../assets/icons/plan.svg";
-import SavedPlansIcon from "../../assets/icons/plan3.svg";
 
 function NavBar() {
   return (
     <footer>
       <div className="nav-bar">
-        <NavLink className="nav-bar__link" to={"/skills"}>
-          {/* <LibraryBooksIcon className="nav-bar__icon" /> */}
-          <img src={LibraryIcon} className="nav-bar__icon" alt="library icon" />
-          <p className="nav-bar__text">Library</p>
+        <NavLink className="nav-bar__link" to={"/"}>
+          {({ isActive }) => (
+            <>
+              {isActive ? (
+                <HomeIcon className="nav-bar__icon nav-bar__icon--active" />
+              ) : (
+                <HomeOutlinedIcon className="nav-bar__icon" />
+              )}
+              <p className="nav-bar__text">Home</p>
+            </>
+          )}
+        </NavLink>
+        <NavLink className="nav-bar__link" to={"/skills/all"}>
+          {({ isActive }) => (
+            <>
+              {isActive ? (
+                <LibraryBooksIcon className="nav-bar__icon nav-bar__icon--active" />
+              ) : (
+                <LibraryBooksOutlinedIcon className="nav-bar__icon" />
+              )}
+              <p className="nav-bar__text">Library</p>
+            </>
+          )}
         </NavLink>
         <NavLink className="nav-bar__link" to={"/skills/favourites"}>
-          {/* <BookmarksIcon className="nav-bar__icon" /> */}
-          <img
-            src={FavouritesIcon}
-            className="nav-bar__icon"
-            alt="favourites icon"
-          />
-          <p className="nav-bar__text">Favourites</p>
+          {({ isActive }) => (
+            <>
+              {isActive ? (
+                <BookmarksIcon className="nav-bar__icon nav-bar__icon--active" />
+              ) : (
+                <BookmarksOutlinedIcon className="nav-bar__icon" />
+              )}
+              <p className="nav-bar__text">Favourites</p>
+            </>
+          )}
         </NavLink>
-        <NavLink className="nav-bar__link" to={"/"}>
-          {/* <DeviceThermostatIcon className="nav-bar__icon-large" /> */}
-          <img
-            src={ThermometerIcon}
-            className="nav-bar__icon nav-bar__icon-large"
-            alt="thermometer icon"
-          />
-          <p className="nav-bar__text">Find Skill</p>
+        <NavLink className="nav-bar__link" to={"/planning"}>
+          {({ isActive }) => (
+            <>
+              {isActive ? (
+                <ListIcon className="nav-bar__icon nav-bar__icon--active" />
+              ) : (
+                <ListOutlinedIcon className="nav-bar__icon" />
+              )}
+              <p className="nav-bar__text">Planning</p>
+            </>
+          )}
         </NavLink>
-        <NavLink className="nav-bar__link" to={"/"}>
-          {/* <ListIcon className="nav-bar__icon" /> */}
-          <img src={PlanningIcon} className="nav-bar__icon" alt="plan icon" />
-          <p className="nav-bar__text">Planning</p>
-        </NavLink>
-        <NavLink className="nav-bar__link" to={"/"}>
-          {/* <EventNoteIcon className="nav-bar__icon" /> */}
-          <img
-            src={SavedPlansIcon}
-            className="nav-bar__icon"
-            alt="plans icon"
-          />
-          <p className="nav-bar__text">Schedule</p>
+        <NavLink className="nav-bar__link" to={"/schedule"}>
+          {({ isActive }) => (
+            <>
+              {isActive ? (
+                <EventNoteIcon className="nav-bar__icon nav-bar__icon--active" />
+              ) : (
+                <EventNoteOutlinedIcon className="nav-bar__icon" />
+              )}
+              <p className="nav-bar__text">Schedule</p>
+            </>
+          )}
         </NavLink>
       </div>
-      <div className="nav-bar__rounded"></div>
     </footer>
   );
 }

@@ -3,48 +3,16 @@ import Thermometer from "../../components/Thermometer/Thermometer";
 import { useState } from "react";
 import Button from "../../components/Button/Button";
 import { useNavigate } from "react-router-dom";
-
-const intensityLevels = [
-  {
-    label: "Crisis",
-    color: "#FF0909",
-    description: "Calm yourself and self‑soothe",
-    threshold: 95,
-    questionId: "5",
-  },
-  {
-    label: "High",
-    color: "#FC8E24",
-    description: "Practice accepting your current reality",
-    threshold: 75,
-    questionId: "4",
-  },
-  {
-    label: "Medium",
-    color: "#FABA2C",
-    description: "Recognize your feelings and choose actions",
-    threshold: 50,
-    questionId: "3",
-  },
-  {
-    label: "Low",
-    color: "#BCAC61",
-    description: "Grounding and breathing techniques",
-    threshold: 30,
-    questionId: "2",
-  },
-  {
-    label: "Feeling Fine",
-    color: "#7D9D96",
-    description: "Practice staying in the moment",
-    threshold: 15,
-    questionId: "1",
-  },
-];
+import SortRoundedIcon from "@mui/icons-material/SortRounded";
+import FilterListRoundedIcon from "@mui/icons-material/FilterListRounded";
+import FilterQuestion from "../FilterQuestion/FilterQuestion";
+import intensityLevels from "../../data/intensity-levels.json";
 
 function HomePage() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [intensity, setIntensity] = useState(35);
+  const [isQuestionModalOpen, setIsQuestionModalOpen] = useState(false);
+  const [currentQuestionId, setCurrentQuestionId] = useState(null);
 
   const handleChange = (newIntensity) => {
     setIntensity(newIntensity);
@@ -62,9 +30,24 @@ function HomePage() {
     setIntensity(threshold);
   };
 
+  const openQuestionModal = (questionId) => {
+    setCurrentQuestionId(questionId);
+    setIsQuestionModalOpen(true);
+  };
+
+  const closeQuestionModal = () => {
+    setIsQuestionModalOpen(false);
+    setCurrentQuestionId(null);
+  };
+
+  // const handleButtonClick = () => {
+  //   const questionId = selectedIntensity.questionId;
+  //   navigate(`/question/${questionId}`);
+  // };
+
   const handleButtonClick = () => {
     const questionId = selectedIntensity.questionId;
-    navigate(`/question/${questionId}`);
+    openQuestionModal(questionId);
   };
 
   return (
@@ -109,6 +92,12 @@ function HomePage() {
         buttonText="Suggest Techniques"
         extraClass="home-page__button"
         onClick={handleButtonClick}
+      />
+      <FilterQuestion
+        isOpen={isQuestionModalOpen}
+        closeModal={closeQuestionModal}
+        questionId={currentQuestionId}
+        color={selectedIntensity.color}
       />
     </main>
   );

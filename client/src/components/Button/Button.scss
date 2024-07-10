@@ -3,6 +3,7 @@
 .button {
   height: 3rem;
   background-color: $thermometer-white;
+  background-color: white;
   color: $almost-black;
   border: none;
   border-radius: 5px;
@@ -11,6 +12,7 @@
   align-items: center;
   justify-content: center;
   box-shadow: rgba(180, 170, 151, 0.2) 0px 2px 8px 0px;
+
   font-family: "Open Sans", sans-serif;
   font-weight: 500;
   font-size: 15px;

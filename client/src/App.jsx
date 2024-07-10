@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/question/:questionId" element={<FilterQuestion />} />
-        <Route exact path="/skills" element={<SkillsLibrary />} />
+        <Route exact path="/skills/all" element={<SkillsLibrary />} />
         <Route path="/skills/category/:category" element={<SkillsLibrary />} />
         <Route path="/skills/favourites" element={<SkillsLibrary />} />
         <Route path="/skills/:id" element={<SkillDetails />} />

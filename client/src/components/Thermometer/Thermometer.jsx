@@ -2,25 +2,20 @@ import * as React from "react";
 import { Slider as BaseSlider, sliderClasses } from "@mui/base/Slider";
 import { styled, Box } from "@mui/system";
 
-const blueGreen = "#3F8ECB";
-const green = "#7D9D96";
-const yellowGreen = "#BCAC61";
+const blue = "#3F8ECB";
+const blueGreen = "#7D9D96";
+const green = "#BCAC61";
 const yellow = "#FABA2C";
-const yellowOrange = "#FC8E24";
-const lightOrange = "#FD621B";
-const orange = "#F3481A";
+const orange = "#FC8E24";
+const midOrange = "#FD621B";
+const orangeRed = "#F3481A";
 const red = "#FF0909";
 
 const getTrackColor = (value) => {
-  // if (value <= 12.5) return blueGreen;
-  if (value <= 15) return green;
-  if (value <= 35) return yellowGreen;
-  // if (value <= 45) return yellow;
+  if (value <= 15) return blueGreen;
+  if (value <= 35) return green;
   if (value <= 60) return yellow;
-  // if (value <= 60) return yellowOrange;
-  if (value <= 85) return yellowOrange;
-  // if (value <= 75) return lightOrange;
-  // if (value <= 90) return orange;
+  if (value <= 85) return orange;
   return red;
 };
 
@@ -73,7 +68,7 @@ const StyledSlider = styled(BaseSlider)(
     box-sizing: border-box;
     border-radius: 50%;
     outline: 0;
-    background-color: #fefdf9;
+    background-color: #ffffff;
     left: 100%;
     -webkit-transform: translate(-50%, 50%);
     -moz-transform: translate(-50%, 50%);

@@ -1,9 +1,10 @@
 import "./Button.scss";
 
-function Button({ onClick, buttonText, extraClass }) {
+function Button({ onClick, buttonText, extraClass, icon }) {
   return (
     <button className={`button ${extraClass}`} onClick={onClick}>
-      {buttonText}
+      {icon && icon}
+      <p className="button__text">{buttonText}</p>
     </button>
   );
 }

@@ -1,21 +1,25 @@
-import { useState } from "react";
 import Modal from "react-modal";
+import "./FitFactsModal.scss";
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 
-function FitFactsModal({ modalIsOpen, closeModal }) {
+function FitFactsModal({ isOpen, closeModal }) {
   return (
     <div>
       <Modal
         className="fit-facts__modal"
         overlayClassName="fit-facts__overlay"
-        isOpen={modalIsOpen}
+        isOpen={isOpen}
         onRequestClose={closeModal}
         contentLabel="Fit Facts Modal"
       >
-        <button className="fit-facts__close" onClick={closeModal}>
-          Close
+        <button className="fit-facts__close-button" onClick={closeModal}>
+          <CloseOutlinedIcon />
         </button>
-        <h3>Fit the Facts</h3>
-        <p>Lorem ipsum dolor sit amet.</p>
+        <div className="fit-facts__content">
+          <h3>Fit the Facts</h3>
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
       </Modal>
     </div>
   );

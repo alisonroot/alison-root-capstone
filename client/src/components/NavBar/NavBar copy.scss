@@ -5,8 +5,7 @@
   display: flex;
   justify-content: space-around;
   align-items: last baseline;
-  // background-color: $nav-cream;
-  background-color: white;
+  background-color: $nav-cream;
   padding: 1rem;
   padding-top: 0;
   z-index: 5;
@@ -28,11 +27,7 @@
   }
 
   &__icon {
-    color: $almost-black;
-
-    &--active {
-      color: $thermometer-blueGreen;
-    }
+    height: 25px;
   }
 
   &__text {
