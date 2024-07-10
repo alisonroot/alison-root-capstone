@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useState } from "react";
 import "./NavBar.scss";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
