@@ -7,7 +7,7 @@ import jwt from "jsonwebtoken";
 const router = express.Router();
 const knex = initKnex(knexConfig);
 
-router.post("r/register", async (req, res) => {
+router.post("/register", async (req, res) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
