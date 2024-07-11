@@ -98,18 +98,18 @@
     padding: 1rem;
     font-weight: 400;
     text-align: center;
+    color: $app-turq-dark;
 
     &:link,
     &:active,
     &:hover,
     &:visited {
       text-decoration: none;
-      color: $app-blue;
       color: black;
     }
 
     &:hover {
-      color: $thermometer-blue;
+      color: $app-turq-dark;
     }
   }
 }

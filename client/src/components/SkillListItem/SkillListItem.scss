@@ -16,11 +16,13 @@
   }
 
   &__tag {
-    border: 0.5px solid $thermometer-blueGreen;
-    border-radius: 8px;
-    padding: 0.25rem 0.75rem;
-    font-size: 13px;
-    background-color: #cbd8d5;
+    white-space: nowrap;
+    border-radius: 20px;
+    padding: 0.35rem 0.75rem;
+    font-size: 10px;
+    background-color: #59bcb5;
+    color: white;
+    text-transform: uppercase;
   }
 }
 

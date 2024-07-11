@@ -15,21 +15,21 @@
   },
   {
     "label": "Medium",
-    "color": "#ffcc23",
+    "color": "#FABA2C",
     "description": "Recognize your feelings and choose actions",
     "threshold": 50,
     "questionId": "3"
   },
   {
     "label": "Low",
-    "color": "#92C369",
+    "color": "#BCAC61",
     "description": "Grounding and breathing techniques",
     "threshold": 30,
     "questionId": "2"
   },
   {
     "label": "Feeling Fine",
-    "color": "#25b9af",
+    "color": "#7D9D96",
     "description": "Practice staying in the moment",
     "threshold": 15,
     "questionId": "1"

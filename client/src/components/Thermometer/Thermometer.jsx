@@ -2,11 +2,18 @@ import * as React from "react";
 import { Slider as BaseSlider, sliderClasses } from "@mui/base/Slider";
 import { styled, Box } from "@mui/system";
 
-const blueGreen = "#7D9D96";
-const green = "#BCAC61";
-const yellow = "#FABA2C";
+// const blueGreen = "#7D9D96";
+// const green = "#BCAC61";
+// const yellow = "#FABA2C";
+// const orange = "#FC8E24";
+// const red = "#FF0909";
+
+const blueGreen = "#25b9af";
+const green = "#92C369";
+const yellow = "#ffcc23";
 const orange = "#FC8E24";
 const red = "#FF0909";
+// const gradient = `linear-gradient(0deg, ${blueGreen}, ${green}, ${yellow}, ${orange}, ${red})`;
 
 const getTrackColor = (value) => {
   if (value <= 15) return blueGreen;
@@ -26,7 +33,7 @@ const StyledSlider = styled(BaseSlider)(
   cursor: pointer;
   touch-action: none;
   -webkit-tap-highlight-color: transparent;
-  
+   
 
   & .${sliderClasses.rail} {
     display: block;
@@ -35,8 +42,9 @@ const StyledSlider = styled(BaseSlider)(
     width: 40px;
     border-radius: 43px;
     background-color: currentColor;
-    opacity: 0.5;
+    opacity: 0.6;
     background: linear-gradient(0deg, rgba(0,188,242,1) 0%, rgba(250,186,44,1) 50%, rgba(243,72,26,1) 80%, rgba(255,9,9,1) 100%);
+    background: linear-gradient(0deg, #25b9af, #92C369, #ffcc23, #FC8E24, #FF0909);;
     z-index: 1;
     display: flex;
     flex-direction: column;
@@ -113,6 +121,7 @@ const Mark = styled("div")`
   width: 5px;
   height: 1px;
   background-color: #fdf4e2;
+  background-color: rgba(255, 255, 255, 0.8);
   z-index: 3;
 `;
 

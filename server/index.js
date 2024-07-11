@@ -12,6 +12,8 @@ const PORT = process.env.PORT || 8080;
 
 app.use("/skills", skillsRoutes);
 
+app.use("/auth", authRoutes);
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

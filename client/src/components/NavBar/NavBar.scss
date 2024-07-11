@@ -1,12 +1,17 @@
 @use "../../styles/partials/variables" as *;
 
 .nav-bar {
-  position: relative;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: last baseline;
-  background-color: $thermometer-blueGreen;
-  padding: 0.5rem 0.75rem 0.75rem;
+  // background-color: $thermometer-blueGreen;
+  background-color: white;
+  border-top: 1px solid lightgray;
+  padding: 0 0.75rem 0.75rem;
+  // padding: 0.75rem;
   z-index: 5;
 
   &__link {
@@ -25,17 +30,24 @@
   }
 
   &__icon {
-    color: white;
+    // color: white;
+    color: $almost-black;
     opacity: 0.7;
+    padding: 0.625rem 0.75rem 0;
 
     &--active {
-      color: white;
+      // color: white;
+      color: $app-turq-mid;
       opacity: 1;
+      border-top: 2px solid $app-turq-mid;
     }
   }
 
   &__text {
-    color: white;
+    // color: white;
+    text-transform: uppercase;
+    font-family: "Lato", sans-serif !important;
+    color: lightgray;
     font-size: 12px;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   }

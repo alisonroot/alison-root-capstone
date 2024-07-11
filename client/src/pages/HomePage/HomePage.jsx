@@ -8,7 +8,7 @@ import FilterListRoundedIcon from "@mui/icons-material/FilterListRounded";
 import FilterQuestion from "../FilterQuestion/FilterQuestion";
 import intensityLevels from "../../data/intensity-levels.json";
 import ManageSearchRoundedIcon from "@mui/icons-material/ManageSearchRounded";
-import Logo from "../../../public/logo2.png";
+import Logo from "../../../public/logo.png";
 
 function HomePage() {
   // const navigate = useNavigate();

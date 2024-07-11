@@ -25,19 +25,26 @@
 
   &__round-button {
     position: absolute;
-    bottom: 7rem;
+    bottom: 8rem;
     right: 3rem;
     border-radius: 50%;
     border: none;
-    background-color: $app-blue;
+    // background-color: $app-blue;
+    background-color: $app-turq-mid;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
       rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    box-shadow: rgba(180, 170, 151, 0.2) 0px 2px 8px 0px;
+    background-image: linear-gradient(
+      to bottom right,
+      $app-turq-light,
+      $app-turq-dark
+    );
   }
 
   &__search-icon {
     color: white;
     font-size: 36px !important;
-    padding: 2rem;
+    padding: 1.5rem;
   }
 }
 
@@ -61,7 +68,7 @@
     font-size: 22px;
     font-family: "Open Sans", sans-serif;
     font-weight: 500;
-    color: rgb(180, 170, 151);
+    color: $app-light-grey;
     cursor: pointer;
   }
 
@@ -71,6 +78,7 @@
     font-size: 11px;
     line-height: 12px;
     color: rgb(180, 170, 151);
+    color: $app-light-grey;
     text-align: end;
     font-style: italic;
   }
