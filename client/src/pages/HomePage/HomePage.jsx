@@ -8,6 +8,7 @@ import FilterListRoundedIcon from "@mui/icons-material/FilterListRounded";
 import FilterQuestion from "../FilterQuestion/FilterQuestion";
 import intensityLevels from "../../data/intensity-levels.json";
 import ManageSearchRoundedIcon from "@mui/icons-material/ManageSearchRounded";
+import Logo from "../../../public/logo2.png";
 
 function HomePage() {
   // const navigate = useNavigate();
@@ -54,6 +55,7 @@ function HomePage() {
   return (
     <main className="home-page">
       <div className="home-page__container">
+        {/* <img src={Logo} alt="app logo" /> */}
         {/* <h1 className="home-page__title">Emotional intensity</h1> */}
       </div>
       <div className="intensity-label">

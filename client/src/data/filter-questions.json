@@ -59,7 +59,7 @@
     "explanation": "Filler text",
     "question": "Are you concerned about your emotions or your actions?",
     "button1": "Emotions",
-    "button1path": "/skills/category/emotion",
+    "button1path": "/skills/category/emotions",
     "button1icon": "SentimentDissatisfiedIcon",
     "button2": "Actions",
     "button2path": "/skills/category/behaviour",

@@ -1,0 +1,30 @@
+.skill-details {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__header {
+    border-bottom: 1px solid lightgrey;
+    width: 100%;
+  }
+
+  &__name {
+    font-weight: 500;
+    font-size: 28px;
+    // font-family: "Lato", sans-serif;
+    padding: 1rem;
+  }
+
+  &__text {
+    padding: 1rem;
+  }
+
+  &__intro {
+  }
+
+  &__content {
+  }
+
+  &__tag {
+  }
+}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import SkillListItem from "../../components/SkillListItem/SkillListItem";
+import "./SkillsLibrary.scss";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -14,11 +15,11 @@ function SkillsLibrary() {
   const fetchAllSkills = async () => {
     try {
       const { data } = await axios.get(`${API_URL}/skills`);
-      console.log(data)
+      console.log(data);
       setSkillsList(data);
     } catch (error) {
       console.error("Error fetching all skills", error);
-      setError("Failed to fetch skills. Please try again later.")
+      setError("Failed to fetch skills. Please try again later.");
     }
   };
 
@@ -27,7 +28,7 @@ function SkillsLibrary() {
       const { data } = await axios.get(
         `${API_URL}/skills/category/${category}`
       );
-      console.log(data)
+      console.log(data);
       setSkillsList(data);
     } catch (error) {
       console.error("Couldn't get list of skills", error);
@@ -49,15 +50,17 @@ function SkillsLibrary() {
   return (
     <div className="skills-library">
       <div className="skills-library__header">
-        <h1>Skills Library</h1>
+        <h1 className="skills-library__header-text">Skills Library</h1>
       </div>
-      {skillsList.length > 0 ? (
-  skillsList.map((skill) => (
-    <SkillListItem key={skill.id} skill={skill} />
-  ))
-) : (
-  <p>No skills found.</p>
-)}
+      <div className="skills-library__list-container">
+        {skillsList.length > 0 ? (
+          skillsList.map((skill) => (
+            <SkillListItem key={skill.id} skill={skill} />
+          ))
+        ) : (
+          <p>No skills found.</p>
+        )}
+      </div>
     </div>
   );
 }
