@@ -4,6 +4,8 @@ import "./App.scss";
 import Header from "./components/Header/Header";
 import NavBar from "./components/NavBar/NavBar";
 import HomePage from "./pages/HomePage/HomePage";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
 import FilterQuestion from "./pages/FilterQuestion/FilterQuestion";
 import SkillsLibrary from "./pages/SkillsLibrary/SkillsLibrary";
 import SkillDetails from "./pages/SkillDetails/SkillDetails";
@@ -14,6 +16,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/question/:questionId" element={<FilterQuestion />} />
         <Route exact path="/skills/all" element={<SkillsLibrary />} />
         <Route path="/skills/category/:category" element={<SkillsLibrary />} />
