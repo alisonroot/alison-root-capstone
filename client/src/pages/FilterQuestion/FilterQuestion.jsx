@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import "./FilterQuestion.scss";
 import FitFactsModal from "../../components/FitFactsModal/FitFactsModal";
 import questions from "../../data/filter-questions.json";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Modal from "react-modal";
-import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
-import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 
 import HikingIcon from "@mui/icons-material/Hiking";
 import SelfImprovementRoundedIcon from "@mui/icons-material/SelfImprovementRounded";
@@ -21,6 +19,7 @@ import BuildCircleOutlinedIcon from "@mui/icons-material/BuildCircleOutlined";
 import DoNotDisturbRoundedIcon from "@mui/icons-material/DoNotDisturbRounded";
 import SentimentDissatisfiedIcon from "@mui/icons-material/SentimentDissatisfied";
 import DirectionsRunRoundedIcon from "@mui/icons-material/DirectionsRunRounded";
+import HelpCenterOutlinedIcon from "@mui/icons-material/HelpCenterOutlined";
 
 const iconMap = {
   SelfImprovementRoundedIcon,
@@ -81,16 +80,10 @@ function FilterQuestion({ questionId, isOpen, closeModal, color }) {
         onRequestClose={closeModal}
         contentLabel="Question Modal"
       >
-        {/* <Link to={"/"}>
-          <ArrowBackIcon />
-        </Link> */}
-        <button className="filter-question__close" onClick={closeModal}>
-          <CancelOutlinedIcon />
-        </button>
         <div className="filter-question__container">
-          {/* <h3 className="filter-question__explanation-text">
-            {question.explanation}
-          </h3> */}
+          <button className="filter-question__close" onClick={closeModal}>
+            <CloseOutlinedIcon />
+          </button>
           <h2 className="filter-question__question-text">
             {question.question}
           </h2>
@@ -113,10 +106,12 @@ function FilterQuestion({ questionId, isOpen, closeModal, color }) {
               extraClass="filter-question__modal-button"
               buttonText={question.extraButtonText}
               onClick={openFitFactsModal}
-            />
+            >
+              icon={<HelpCenterOutlinedIcon />}
+            </Button>
           )}
           <Link className="filter-question__skip-link" to={"/skills/low"}>
-            See all {question.intensity} skills
+            See all {question.intensity} techniques
           </Link>
           <FitFactsModal
             isOpen={isFitFactsModalOpen}

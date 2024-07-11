@@ -1,25 +1,41 @@
 @use "../../styles/partials/variables" as *;
 
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
 .fit-facts {
   &__modal {
-    position: fixed;
-    // top: 50%;
-    // left: 50%;
-    // transform: translate(-50%, -50%);
-    // height: 100%;
-    // width: 100%;
+    width: 82%;
+    height: 75%;
     box-sizing: border-box;
-    margin: 2rem;
-    background-color: $background-cream;
+    background-color: white;
     z-index: 1000;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    // overflow: hidden;
   }
 
   &__overlay {
     position: fixed;
-    // background-color: $background-cream;
-    background-color: rgb(178, 176, 172, 0.2);
-    // height: 100vh;
-    // width: 100vw;
+    // background-color: rgba(255, 255, 255, 0.2);
+    // backdrop-filter: blur(5px);
+    height: 100vh;
+    width: 100vw;
     top: 0;
     left: 0;
     z-index: 999;
@@ -28,12 +44,76 @@
     justify-content: center;
   }
 
-  &__close-button {
-    background-color: $background-cream;
+  &__close {
+    background-color: inherit;
     border: none;
+    align-self: end;
+    padding: 1rem 1rem 0;
   }
 
-  &__content {
-    padding: 2rem;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    width: 100%;
+    height: 100%;
   }
+
+  &__header {
+    padding: 0 2rem 1rem;
+    font-weight: 600;
+    font-size: 22px;
+  }
+
+  &__divider {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px solid lightgrey;
+  }
+
+  &__text {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow-y: scroll;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__subheader {
+    font-weight: 500;
+  }
+
+  &__steps-item {
+    padding-bottom: 0.5rem;
+    list-style-position: inside;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: end;
+  }
+
+  &__close-button {
+    border: none;
+    align-self: end;
+    padding: 1rem;
+    background-color: unset;
+  }
+
+  &__close-text {
+    color: $thermometer-blueGreen;
+    font-weight: 600;
+    font-size: 15px;
+  }
+}
+
+strong {
+  font-weight: 600;
 }

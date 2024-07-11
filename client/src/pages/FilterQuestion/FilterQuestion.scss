@@ -1,32 +1,38 @@
 @use "../../styles/partials/variables" as *;
 
-.filter-question {
-  padding: 3rem 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  height: 100%;
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+}
 
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.filter-question {
   &__modal {
     position: fixed;
-    // top: 50%;
-    // left: 50%;
-    // transform: translate(-50%, -50%);
-    // height: 100%;
-    // width: 100%;
+    width: auto;
+    height: auto;
     box-sizing: border-box;
-    margin: 2rem;
-    // background-color: $background-cream;
+    margin: 2.5rem;
     background-color: white;
     z-index: 1000;
-    border-radius: 20px;
+    border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   }
 
   &__overlay {
     position: fixed;
-    // background-color: $background-cream;
-    // background-color: rgb(178, 176, 172, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     height: 100vh;
     width: 100vw;
     top: 0;
@@ -40,47 +46,34 @@
   &__close {
     background-color: inherit;
     border: none;
-    position: relative;
-    top: 1rem;
-    right: 1rem;
+    align-self: end;
   }
 
   &__container {
-    padding: 5rem 1rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
   }
 
-  &__explanation-text {
-    font-weight: 500;
-    font-size: 14px;
-    text-align: center;
-  }
-
-  &__question-background {
-    width: 100%;
-  }
-
   &__question-text {
-    font-weight: 600;
-    margin: 2rem 0 4rem;
-    font-size: 26px;
+    font-weight: 500;
+    margin: 1rem;
+    font-size: 22px;
     text-align: center;
   }
 
   &__button-container {
     display: flex;
     width: 100%;
-    padding-bottom: 1rem;
-    justify-content: center;
+    padding: 1rem 0;
+    justify-content: space-around;
   }
 
   &__button {
     width: 135px;
     height: 135px;
-    margin: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -89,44 +82,34 @@
 
   &__button-icon {
     font-size: 60px !important;
-    // color: $thermometer-blueGreen;
     padding: 0.5rem 0;
   }
 
   &__modal-button {
     width: 50%;
+    margin: 1rem;
+    padding: 0.75rem 1rem;
   }
 
   &__skip-link {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 1rem;
+    font-weight: 400;
+    text-align: center;
+
     &:link,
     &:active,
     &:hover,
     &:visited {
       text-decoration: none;
+      color: $app-blue;
       color: black;
     }
-  }
-}
 
-.fit-facts {
-  &__modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 90vh;
-    width: 90vw;
-    background-color: white;
-    z-index: 1000;
-  }
-
-  &__overlay {
-    position: fixed;
-    background-color: grey;
-    height: 100vh;
-    width: 100vw;
-    top: 0;
-    left: 0;
-    z-index: 999;
+    &:hover {
+      color: $thermometer-blue;
+    }
   }
 }

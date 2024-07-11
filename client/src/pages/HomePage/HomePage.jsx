@@ -7,6 +7,7 @@ import SortRoundedIcon from "@mui/icons-material/SortRounded";
 import FilterListRoundedIcon from "@mui/icons-material/FilterListRounded";
 import FilterQuestion from "../FilterQuestion/FilterQuestion";
 import intensityLevels from "../../data/intensity-levels.json";
+import ManageSearchRoundedIcon from "@mui/icons-material/ManageSearchRounded";
 
 function HomePage() {
   // const navigate = useNavigate();
@@ -63,11 +64,7 @@ function HomePage() {
             onClick={() => handleLabelClick(level.threshold)}
           >
             <h2
-              className={`intensity-label__level ${
-                selectedIntensity.label === level.label
-                  ? "selectedIntensity__level--selected"
-                  : ""
-              }`}
+              className="intensity-label__level"
               style={{
                 color:
                   selectedIntensity.label === level.label ? level.color : "",
@@ -88,11 +85,9 @@ function HomePage() {
         intensity={intensity}
         onChange={handleChange}
       />
-      <Button
-        buttonText="Suggest Techniques"
-        extraClass="home-page__button"
-        onClick={handleButtonClick}
-      />
+      <button className="home-page__round-button" onClick={handleButtonClick}>
+        <ManageSearchRoundedIcon className="home-page__search-icon" />
+      </button>
       <FilterQuestion
         isOpen={isQuestionModalOpen}
         closeModal={closeQuestionModal}

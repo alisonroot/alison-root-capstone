@@ -2,13 +2,10 @@ import * as React from "react";
 import { Slider as BaseSlider, sliderClasses } from "@mui/base/Slider";
 import { styled, Box } from "@mui/system";
 
-const blue = "#3F8ECB";
 const blueGreen = "#7D9D96";
 const green = "#BCAC61";
 const yellow = "#FABA2C";
 const orange = "#FC8E24";
-const midOrange = "#FD621B";
-const orangeRed = "#F3481A";
 const red = "#FF0909";
 
 const getTrackColor = (value) => {
@@ -29,6 +26,7 @@ const StyledSlider = styled(BaseSlider)(
   cursor: pointer;
   touch-action: none;
   -webkit-tap-highlight-color: transparent;
+  
 
   & .${sliderClasses.rail} {
     display: block;
@@ -44,6 +42,7 @@ const StyledSlider = styled(BaseSlider)(
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
   }
   
 
