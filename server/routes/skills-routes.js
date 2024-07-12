@@ -1,16 +1,20 @@
 import express from "express";
 import {
   getAllSkills,
-  getSkillsByCategory, 
-  getSkillById
+  getSkillsByCategory,
+  getSkillById,
+  favouriteSkill,
+  unfavouriteSkill,
 } from "../controllers/skills-controller.js";
+import authorize from "../middleware/auth-middleware.js";
 
 const router = express.Router();
 
-router.get("/", getAllSkills);
+router.get("/", authorize, getAllSkills);
+router.get("/category/:category", authorize, getSkillsByCategory);
+router.get("/:id", authorize, getSkillById);
 
-router.get("/category/:category", getSkillsByCategory);
-
-router.get("/:id", getSkillById)
+router.post("/:id/favourite", authorize, favouriteSkill);
+router.delete("/:id/unfavourite", authorize, unfavouriteSkill);
 
 export default router;

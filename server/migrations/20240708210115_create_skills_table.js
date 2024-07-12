@@ -12,6 +12,7 @@ export async function up(knex) {
     table.boolean("is_acronym").notNullable();
     table.string("category", 255).notNullable();
     table.string("tag", 255);
+    table.string("intensity", 255).notNullable();
   });
 }
 

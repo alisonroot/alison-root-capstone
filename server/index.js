@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import "dotenv/config";
 import skillsRoutes from "./routes/skills-routes.js";
-import authRoutes from "./routes/auth.js";
+import authRoutes from "./routes/auth-routes.js";
 
 const app = express();
 

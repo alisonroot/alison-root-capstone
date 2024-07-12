@@ -1,13 +1,11 @@
-import express from "express";
 import initKnex from "knex";
 import knexConfig from "../knexfile.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-const router = express.Router();
 const knex = initKnex(knexConfig);
 
-router.post("/register", async (req, res) => {
+const registerNewUser = async (req, res) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
@@ -28,9 +26,9 @@ router.post("/register", async (req, res) => {
     console.error(err);
     res.status(400).send("Failed registration");
   }
-});
+};
 
-router.post("/login", async (req, res) => {
+const logInUser = async (req, res) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
@@ -56,13 +54,13 @@ router.post("/login", async (req, res) => {
   const token = jwt.sign(
     { id: user.id, email: user.email },
     process.env.JWT_SECRET,
-    { expiresIn: "15m" }
+    { expiresIn: "7d" }
   );
 
   res.send({ token: token });
-});
+};
 
-router.get("/profile", async (req, res) => {
+const getUserProfile = async (req, res) => {
   const authHeader = req.headers.authorization;
 
   if (!authHeader) {
@@ -86,6 +84,6 @@ router.get("/profile", async (req, res) => {
   delete userData.password;
 
   res.status(200).json(userData);
-});
+};
 
-export default router;
+export { registerNewUser, logInUser, getUserProfile };
