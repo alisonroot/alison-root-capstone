@@ -68,7 +68,7 @@ function FilterQuestion({ questionId, isOpen, closeModal, color }) {
   };
 
   if (!question) {
-    return <span>Loading question...</span>;
+    return null;
   }
 
   return (
@@ -110,7 +110,10 @@ function FilterQuestion({ questionId, isOpen, closeModal, color }) {
               icon={<HelpCenterOutlinedIcon />}
             </Button>
           )}
-          <Link className="filter-question__skip-link" to={"/skills/low"}>
+          <Link
+            className="filter-question__skip-link"
+            to={`/skills/intensity/${question.intensitypath}`}
+          >
             See all {question.intensity} techniques
           </Link>
           <FitFactsModal

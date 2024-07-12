@@ -5,24 +5,50 @@
   align-items: start;
   justify-content: space-between;
   border-bottom: 1px solid lightgrey;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 2rem;
 
   &__text {
   }
 
   &__title {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
+    padding-top: 0.5rem;
+  }
+
+  &__preview {
+    font-size: 14px;
+    padding: 0.4rem 0;
   }
 
   &__tag {
     white-space: nowrap;
     border-radius: 20px;
-    padding: 0.35rem 0.75rem;
+    padding: 0.25rem 0.75rem;
     font-size: 10px;
-    background-color: #59bcb5;
+    // border: 1px solid $almost-black;
+    // background-color: #59bcb5;
     color: white;
+    // background-color: #c4d3be;
+    background-color: $app-turq-light;
     text-transform: uppercase;
+    width: fit-content;
+    margin: 0.25rem 0;
+  }
+
+  &__favourite {
+    background-color: unset;
+    border: none;
+  }
+
+  &__favourite-icon {
+    color: $almost-black;
+    cursor: pointer;
+    font-size: 24px !important;
+
+    &--filled {
+      color: $app-turq-dark !important;
+    }
   }
 }
 

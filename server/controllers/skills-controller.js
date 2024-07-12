@@ -50,6 +50,56 @@ const getSkillsByCategory = async (req, res) => {
   }
 };
 
+const getSkillsByIntensity = async (req, res) => {
+  const intensity = req.params.intensity;
+  try {
+    console.log("User ID:", req.user.id);
+
+    const skills = await knex("skills")
+      .select("skills.*", "favourited_skills.id as favourite_id")
+      .leftJoin("favourited_skills", function () {
+        this.on("skills.id", "=", "favourited_skills.skill_id").andOn(
+          "favourited_skills.user_id",
+          "=",
+          req.user.id
+        );
+      })
+      .where({ intensity });
+
+    if (skills.length === 0) {
+      return res
+        .status(404)
+        .json({ message: "No skills found for this intensity level" });
+    }
+    res.json(skills);
+  } catch (error) {
+    res.status(500).json({ message: "Unable to retrieve skills" });
+  }
+};
+
+const getFavouritedSkills = async (req, res) => {
+  try {
+    const skills = await knex("skills")
+      .select("skills.*", "favourited_skills.id as favourite_id")
+      .leftJoin("favourited_skills", function () {
+        this.on("skills.id", "=", "favourited_skills.skill_id").andOn(
+          "favourited_skills.user_id",
+          "=",
+          req.user.id
+        );
+      })
+      .whereNotNull("favourited_skills.id");
+
+    if (skills.length === 0) {
+      return res.status(404).json({ message: "No skills found" });
+    }
+    res.json(skills);
+  } catch (error) {
+    console.error("Error retrieving favourite skills:", error);
+    res.status(500).json({ message: "Unable to retrieve favourite skills" });
+  }
+};
+
 const getSkillById = async (req, res) => {
   const id = req.params.id;
   try {
@@ -109,6 +159,8 @@ const unfavouriteSkill = async (req, res) => {
 export {
   getAllSkills,
   getSkillsByCategory,
+  getSkillsByIntensity,
+  getFavouritedSkills,
   getSkillById,
   favouriteSkill,
   unfavouriteSkill,

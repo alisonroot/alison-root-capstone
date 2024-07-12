@@ -7,6 +7,9 @@ import LibraryBooksOutlinedIcon from "@mui/icons-material/LibraryBooksOutlined";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import BookmarksOutlinedIcon from "@mui/icons-material/BookmarksOutlined";
 import BookmarksIcon from "@mui/icons-material/Bookmarks";
+import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
+import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
+
 import EventNoteOutlinedIcon from "@mui/icons-material/EventNoteOutlined";
 import EventNoteIcon from "@mui/icons-material/EventNote";
 import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
@@ -44,15 +47,15 @@ function NavBar() {
           {({ isActive }) => (
             <>
               {isActive ? (
-                <BookmarksIcon className="nav-bar__icon nav-bar__icon--active" />
+                <FavoriteRoundedIcon className="nav-bar__icon nav-bar__icon--active" />
               ) : (
-                <BookmarksOutlinedIcon className="nav-bar__icon" />
+                <FavoriteBorderRoundedIcon className="nav-bar__icon" />
               )}
               <p className="nav-bar__text">Favourites</p>
             </>
           )}
         </NavLink>
-        <NavLink className="nav-bar__link" to={"/planning"}>
+        {/* <NavLink className="nav-bar__link" to={"/planning"}>
           {({ isActive }) => (
             <>
               {isActive ? (
@@ -75,7 +78,7 @@ function NavBar() {
               <p className="nav-bar__text">Schedule</p>
             </>
           )}
-        </NavLink>
+        </NavLink> */}
       </div>
     </footer>
   );

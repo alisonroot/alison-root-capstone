@@ -1,3 +1,5 @@
+@use "../../styles/partials/variables" as *;
+
 .skill-details {
   display: flex;
   flex-direction: column;
@@ -5,18 +7,46 @@
 
   &__header {
     border-bottom: 1px solid lightgrey;
-    width: 100%;
+    // width: 100vw;
+    display: flex;
+    padding: 2rem;
+    justify-content: space-between;
   }
 
   &__name {
     font-weight: 500;
     font-size: 28px;
     // font-family: "Lato", sans-serif;
-    padding: 1rem;
+  }
+
+  &__favourite {
+    background-color: unset;
+    border: none;
+  }
+
+  &__favourite-icon {
+    color: $almost-black;
+    cursor: pointer;
+    font-size: 40px !important;
+
+    &--filled {
+      color: $app-turq-dark !important;
+    }
   }
 
   &__text {
-    padding: 1rem;
+    padding: 1rem 2rem;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__introduction {
+    padding-top: 0.5rem;
+  }
+
+  &__instructions {
+    padding-top: 1.5rem;
   }
 
   &__intro {
@@ -25,6 +55,23 @@
   &__content {
   }
 
+  &__content-paragraph {
+    padding: 0.5rem 0;
+  }
+
   &__tag {
+    white-space: nowrap;
+    border-radius: 20px;
+    padding: 0.25rem 0.75rem;
+    font-size: 13px;
+    // border: 1px solid $almost-black;
+    // background-color: #59bcb5;
+    color: white;
+    // background-color: #c4d3be;
+    background-color: $app-turq-light;
+    text-transform: uppercase;
+    width: fit-content;
+    margin: 0.25rem 0 0;
+    align-self: end;
   }
 }

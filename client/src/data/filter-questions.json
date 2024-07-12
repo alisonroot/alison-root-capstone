@@ -2,6 +2,7 @@
   {
     "id": "1",
     "intensity": "mindfulness",
+    "intensitypath": "mindfulness",
     "explanation": "Great to hear you're feeling fine! This is a great time to strengthen your mindfulness skills.",
     "question": "Would you prefer to do a meditation or incorporate mindfulness into an activity?",
     "button1": "Take a break",
@@ -15,6 +16,7 @@
   {
     "id": "2",
     "intensity": "breathing and grounding",
+    "intensitypath": "low",
     "explanation": "You chose low emotional intensity. A quick breathing or grounding exercise may help you feel better.",
     "question": "Would you prefer breathing exercises or grounding techniques?",
     "button1": "Breathing",
@@ -28,10 +30,11 @@
   {
     "id": "3",
     "intensity": "emotional regulation",
+    "intensitypath": "medium",
     "explanation": "By better understanding your feelings, you'll be able to make better decisions.",
     "question": "Does this emotion fit the facts of the situation?",
     "button1": "Yes",
-    "button1path": "/question/6",
+    "button1path": "skills/category/yesfit",
     "button1icon": "CheckBoxOutlinedIcon",
     "button2": "No",
     "button2path": "/skills/category/nofit",
@@ -43,6 +46,7 @@
   {
     "id": "4",
     "intensity": "distress tolerance",
+    "intensitypath": "medium",
     "explanation": "Filler text",
     "question": "Are you able to change the situation?",
     "button1": "Yes",
@@ -56,6 +60,7 @@
   {
     "id": "5",
     "intensity": "crisis management",
+    "intensitypath": "high",
     "explanation": "Filler text",
     "question": "Are you concerned about your emotions or your actions?",
     "button1": "Emotions",
@@ -69,6 +74,7 @@
   {
     "id": "6",
     "intensity": "emotional regulation",
+    "intensitypath": "crisis",
     "explanation": "Now think about the following:",
     "question": "Is acting on this emotion effective?",
     "button1": "Yes",

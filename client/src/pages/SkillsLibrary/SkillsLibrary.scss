@@ -12,10 +12,14 @@
     font-weight: 500;
     font-size: 28px;
     // font-family: "Lato", sans-serif;
-    padding: 1rem;
+    padding: 2rem;
   }
 
   &__list-container {
     overflow-y: scroll;
+  }
+
+  &__no-favourites {
+    padding: 2rem;
   }
 }

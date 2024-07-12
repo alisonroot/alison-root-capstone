@@ -3,14 +3,14 @@
 .nav-bar {
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: space-around;
   align-items: last baseline;
   // background-color: $thermometer-blueGreen;
   background-color: white;
   border-top: 1px solid lightgray;
-  padding: 0 0.75rem 0.75rem;
+  padding: 0 0 0.75rem;
   // padding: 0.75rem;
   z-index: 5;
 
@@ -32,6 +32,7 @@
   &__icon {
     // color: white;
     color: $almost-black;
+    // color: lightgray;
     opacity: 0.7;
     padding: 0.625rem 0.75rem 0;
 
@@ -48,6 +49,7 @@
     text-transform: uppercase;
     font-family: "Lato", sans-serif !important;
     color: lightgray;
+    color: $almost-black;
     font-size: 12px;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   }

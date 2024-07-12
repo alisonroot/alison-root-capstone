@@ -9,23 +9,78 @@ import Register from "./pages/Register/Register";
 import FilterQuestion from "./pages/FilterQuestion/FilterQuestion";
 import SkillsLibrary from "./pages/SkillsLibrary/SkillsLibrary";
 import SkillDetails from "./pages/SkillDetails/SkillDetails";
+import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
+import { AuthProvider } from "./hooks/useAuth";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/question/:questionId" element={<FilterQuestion />} />
-        <Route exact path="/skills/all" element={<SkillsLibrary />} />
-        <Route path="/skills/category/:category" element={<SkillsLibrary />} />
-        <Route path="/skills/favourites" element={<SkillsLibrary />} />
-        <Route path="/skills/:id" element={<SkillDetails />} />
-      </Routes>
-      <NavBar />
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <HomePage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/question/:questionId"
+            element={
+              <ProtectedRoute>
+                <FilterQuestion />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            exact
+            path="/skills/all"
+            element={
+              <ProtectedRoute>
+                <SkillsLibrary />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/skills/category/:category"
+            element={
+              <ProtectedRoute>
+                <SkillsLibrary />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/skills/intensity/:intensity"
+            element={
+              <ProtectedRoute>
+                <SkillsLibrary />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/skills/favourites"
+            element={
+              <ProtectedRoute>
+                <SkillsLibrary />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/skills/:id"
+            element={
+              <ProtectedRoute>
+                <SkillDetails />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+        <NavBar />
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
