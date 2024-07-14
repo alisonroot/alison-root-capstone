@@ -55,7 +55,7 @@ function NavBar() {
             </>
           )}
         </NavLink>
-        {/* <NavLink className="nav-bar__link" to={"/planning"}>
+        <NavLink className="nav-bar__link" to={"/emergency/plan"}>
           {({ isActive }) => (
             <>
               {isActive ? (
@@ -67,7 +67,7 @@ function NavBar() {
             </>
           )}
         </NavLink>
-        <NavLink className="nav-bar__link" to={"/schedule"}>
+        {/* <NavLink className="nav-bar__link" to={"/schedule"}>
           {({ isActive }) => (
             <>
               {isActive ? (

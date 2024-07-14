@@ -1,23 +1,25 @@
 import "./HomePage.scss";
 import Thermometer from "../../components/Thermometer/Thermometer";
 import { useState } from "react";
-import Button from "../../components/Button/Button";
 import { useNavigate } from "react-router-dom";
-import SortRoundedIcon from "@mui/icons-material/SortRounded";
-import FilterListRoundedIcon from "@mui/icons-material/FilterListRounded";
 import FilterQuestion from "../FilterQuestion/FilterQuestion";
 import intensityLevels from "../../data/intensity-levels.json";
 import ManageSearchRoundedIcon from "@mui/icons-material/ManageSearchRounded";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import Drawer from "@mui/material/Drawer";
 import { useAuth } from "../../hooks/useAuth";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import CrisisAlertIcon from "@mui/icons-material/CrisisAlert";
+import HelpCenterOutlinedIcon from "@mui/icons-material/HelpCenterOutlined";
 
 function HomePage() {
   const navigate = useNavigate();
+
   const [intensity, setIntensity] = useState(35);
   const [isQuestionModalOpen, setIsQuestionModalOpen] = useState(false);
   const [currentQuestionId, setCurrentQuestionId] = useState(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
+
   const { logout } = useAuth();
 
   const handleChange = (newIntensity) => {
@@ -62,6 +64,10 @@ function HomePage() {
     navigate("/login");
   };
 
+  const handleEmergencyClick = () => {
+    navigate("/emergency");
+  };
+
   return (
     <main className="home-page">
       <div className="home-page__container">
@@ -87,6 +93,12 @@ function HomePage() {
           </div>
         </Drawer>
         {/* <h1 className="home-page__title">Emotional intensity</h1> */}
+        <button
+          className="home-page__emergency-button"
+          onClick={handleEmergencyClick}
+        >
+          <CrisisAlertIcon className="home-page__emergency-icon" />
+        </button>
       </div>
       <div className="intensity-label">
         {intensityLevels.map((level, index) => (

@@ -8,6 +8,8 @@ import Register from "./pages/Register/Register";
 import FilterQuestion from "./pages/FilterQuestion/FilterQuestion";
 import SkillsLibrary from "./pages/SkillsLibrary/SkillsLibrary";
 import SkillDetails from "./pages/SkillDetails/SkillDetails";
+import EmergencyPage from "./pages/EmergencyPage/EmergencyPage";
+import EmergencyPlan from "./pages/EmergencyPlan/EmergencyPlan";
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
 import { AuthProvider } from "./hooks/useAuth";
 
@@ -72,6 +74,22 @@ function App() {
             element={
               <ProtectedRoute>
                 <SkillDetails />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/emergency"
+            element={
+              <ProtectedRoute>
+                <EmergencyPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/emergency/plan"
+            element={
+              <ProtectedRoute>
+                <EmergencyPlan />
               </ProtectedRoute>
             }
           />

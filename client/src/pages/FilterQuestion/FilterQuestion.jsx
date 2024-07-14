@@ -19,8 +19,6 @@ import BuildCircleOutlinedIcon from "@mui/icons-material/BuildCircleOutlined";
 import DoNotDisturbRoundedIcon from "@mui/icons-material/DoNotDisturbRounded";
 import SentimentDissatisfiedIcon from "@mui/icons-material/SentimentDissatisfied";
 import DirectionsRunRoundedIcon from "@mui/icons-material/DirectionsRunRounded";
-import HelpCenterOutlinedIcon from "@mui/icons-material/HelpCenterOutlined";
-import CrisisAlertIcon from "@mui/icons-material/CrisisAlert";
 
 const iconMap = {
   SelfImprovementRoundedIcon,
@@ -128,6 +126,7 @@ function FilterQuestion({ questionId, isOpen, closeModal, color }) {
             closeModal={closeSkillModal}
             modalType={question.modaltype}
             closeText="RETURN TO QUESTION"
+            onClick={closeSkillModal}
           />
           <Link
             className="filter-question__skip-link"
