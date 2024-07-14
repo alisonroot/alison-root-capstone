@@ -1,5 +1,5 @@
 import Modal from "react-modal";
-import "./StopSkillModal.scss";
+import "./STOPModal.scss";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 
 function StopSkillModal({ isOpen, closeModal }) {

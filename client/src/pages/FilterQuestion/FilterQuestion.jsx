@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import "./FilterQuestion.scss";
-import FitFactsModal from "../../components/FitFactsModal/FitFactsModal";
+import SkillModal from "../../components/SkillModal/SkillModal";
 import questions from "../../data/filter-questions.json";
 import Modal from "react-modal";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
@@ -20,6 +20,7 @@ import DoNotDisturbRoundedIcon from "@mui/icons-material/DoNotDisturbRounded";
 import SentimentDissatisfiedIcon from "@mui/icons-material/SentimentDissatisfied";
 import DirectionsRunRoundedIcon from "@mui/icons-material/DirectionsRunRounded";
 import HelpCenterOutlinedIcon from "@mui/icons-material/HelpCenterOutlined";
+import CrisisAlertIcon from "@mui/icons-material/CrisisAlert";
 
 const iconMap = {
   SelfImprovementRoundedIcon,
@@ -47,24 +48,37 @@ const getIconComponent = (iconName, color) => {
 };
 
 function FilterQuestion({ questionId, isOpen, closeModal, color }) {
-  // const { questionId } = useParams();
   const navigate = useNavigate();
   const [question, setQuestion] = useState(null);
-  const [isFitFactsModalOpen, setIsFitFactsModalOpen] = useState(false);
+  const [isSkillModalOpen, setIsSkillModalOpen] = useState(false);
 
   useEffect(() => {
     const question = questions.find((question) => question.id === questionId);
     if (question) {
       setQuestion(question);
+
+      if (questionId === 5) {
+        console.log("Opening Skill Modal for question 5");
+        setIsSkillModalOpen(true);
+      } else {
+        console.log(`Question ID ${questionId} does not trigger Skill Modal`);
+      }
     }
   }, [questionId]);
 
-  const openFitFactsModal = () => {
-    setIsFitFactsModalOpen(true);
+  const openSkillModal = () => {
+    console.log("opening skill modal manually");
+    setIsSkillModalOpen(true);
   };
 
-  const closeFitFactsModal = () => {
-    setIsFitFactsModalOpen(false);
+  const closeSkillModal = () => {
+    console.log("closing skill modal");
+    setIsSkillModalOpen(false);
+  };
+
+  const handleButtonClick = () => {
+    console.log("button clicked");
+    openSkillModal();
   };
 
   if (!question) {
@@ -105,21 +119,22 @@ function FilterQuestion({ questionId, isOpen, closeModal, color }) {
             <Button
               extraClass="filter-question__modal-button"
               buttonText={question.extraButtonText}
-              onClick={openFitFactsModal}
-            >
-              icon={<HelpCenterOutlinedIcon />}
-            </Button>
+              onClick={handleButtonClick}
+            ></Button>
           )}
+          <SkillModal
+            contentLabel={`Technique Modal ${questionId}`}
+            isOpen={isSkillModalOpen}
+            closeModal={closeSkillModal}
+            modalType={question.modaltype}
+            closeText="RETURN TO QUESTION"
+          />
           <Link
             className="filter-question__skip-link"
             to={`/skills/intensity/${question.intensitypath}`}
           >
             See all {question.intensity} techniques
           </Link>
-          <FitFactsModal
-            isOpen={isFitFactsModalOpen}
-            closeModal={closeFitFactsModal}
-          />
         </div>
       </Modal>
     </div>

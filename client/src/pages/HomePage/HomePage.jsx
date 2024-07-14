@@ -8,7 +8,6 @@ import FilterListRoundedIcon from "@mui/icons-material/FilterListRounded";
 import FilterQuestion from "../FilterQuestion/FilterQuestion";
 import intensityLevels from "../../data/intensity-levels.json";
 import ManageSearchRoundedIcon from "@mui/icons-material/ManageSearchRounded";
-import Logo from "../../../public/logo.png";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import Drawer from "@mui/material/Drawer";
 import { useAuth } from "../../hooks/useAuth";
@@ -38,19 +37,16 @@ function HomePage() {
   };
 
   const openQuestionModal = (questionId) => {
-    setCurrentQuestionId(questionId);
-    setIsQuestionModalOpen(true);
+    if (!isQuestionModalOpen) {
+      setCurrentQuestionId(questionId);
+      setIsQuestionModalOpen(true);
+    }
   };
 
   const closeQuestionModal = () => {
     setIsQuestionModalOpen(false);
     setCurrentQuestionId(null);
   };
-
-  // const handleButtonClick = () => {
-  //   const questionId = selectedIntensity.questionId;
-  //   navigate(`/question/${questionId}`);
-  // };
 
   const handleButtonClick = () => {
     const questionId = selectedIntensity.questionId;

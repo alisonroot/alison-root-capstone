@@ -3,7 +3,6 @@
     "id": "1",
     "intensity": "mindfulness",
     "intensitypath": "mindfulness",
-    "explanation": "Great to hear you're feeling fine! This is a great time to strengthen your mindfulness skills.",
     "question": "Would you prefer to do a meditation or incorporate mindfulness into an activity?",
     "button1": "Take a break",
     "button1path": "/skills/category/break",
@@ -17,7 +16,6 @@
     "id": "2",
     "intensity": "breathing and grounding",
     "intensitypath": "low",
-    "explanation": "You chose low emotional intensity. A quick breathing or grounding exercise may help you feel better.",
     "question": "Would you prefer breathing exercises or grounding techniques?",
     "button1": "Breathing",
     "button1path": "/skills/category/breathing",
@@ -31,7 +29,6 @@
     "id": "3",
     "intensity": "emotional regulation",
     "intensitypath": "medium",
-    "explanation": "By better understanding your feelings, you'll be able to make better decisions.",
     "question": "Does this emotion fit the facts of the situation?",
     "button1": "Yes",
     "button1path": "skills/category/yesfit",
@@ -41,13 +38,12 @@
     "button2icon": "IndeterminateCheckBoxOutlinedIcon",
     "extraButton": true,
     "extraButtonText": "I'm not sure",
-    "extraButtonPath": "FitFactsModal"
+    "modaltype": "check-facts"
   },
   {
     "id": "4",
     "intensity": "distress tolerance",
     "intensitypath": "medium",
-    "explanation": "Filler text",
     "question": "Are you able to change the situation?",
     "button1": "Yes",
     "button1path": "/skills/category/control",
@@ -61,7 +57,6 @@
     "id": "5",
     "intensity": "crisis management",
     "intensitypath": "high",
-    "explanation": "Filler text",
     "question": "Are you concerned about your emotions or your actions?",
     "button1": "Emotions",
     "button1path": "/skills/category/emotions",
@@ -69,22 +64,8 @@
     "button2": "Actions",
     "button2path": "/skills/category/behaviour",
     "button2icon": "DirectionsRunRoundedIcon",
-    "extraButton": false
-  },
-  {
-    "id": "6",
-    "intensity": "emotional regulation",
-    "intensitypath": "crisis",
-    "explanation": "Now think about the following:",
-    "question": "Is acting on this emotion effective?",
-    "button1": "Yes",
-    "button1path": "/skills/category/act",
-    "button1icon": "ThumbUpOutlinedIcon",
-    "button2": "No",
-    "button2path": "/skills/category/noact",
-    "button2icon": "ThumbDownOutlinedIcon",
     "extraButton": true,
-    "extraButtonText": "I'm not sure",
-    "extraButtonPath": "/skills/category/evaluate"
+    "extraButtonText": "See STOP Skill",
+    "modaltype": "stop"
   }
 ]
