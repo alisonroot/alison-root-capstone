@@ -26,8 +26,6 @@ const getAllSkills = async (req, res) => {
 const getSkillsByCategory = async (req, res) => {
   const category = req.params.category;
   try {
-    console.log("User ID:", req.user.id);
-
     const skills = await knex("skills")
       .select("skills.*", "favourited_skills.id as favourite_id")
       .leftJoin("favourited_skills", function () {
@@ -53,8 +51,6 @@ const getSkillsByCategory = async (req, res) => {
 const getSkillsByIntensity = async (req, res) => {
   const intensity = req.params.intensity;
   try {
-    console.log("User ID:", req.user.id);
-
     const skills = await knex("skills")
       .select("skills.*", "favourited_skills.id as favourite_id")
       .leftJoin("favourited_skills", function () {

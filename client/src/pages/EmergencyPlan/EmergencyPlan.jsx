@@ -18,7 +18,7 @@ function EmergencyPlan() {
       </div>
       <div className="emergency-plan__input-section">
         <div className="emergency-plan__sub-section">
-          <h2 className="emergency-plan__subheader">Personal Support System</h2>
+          <h2 className="emergency-plan__subheader">Personal Supports</h2>
           <div className="emergency-plan__support">
             <div className="emergency-plan__support-item">
               <TextField
@@ -59,31 +59,9 @@ function EmergencyPlan() {
               />
             </div>
           </div>
-          <div className="emergency-plan__support">
-            <div className="emergency-plan__support-item">
-              <TextField
-                variant="outlined"
-                label="Name"
-                id="supportPerson3Name"
-                className="emergency-plan__textfield"
-                size="small"
-              />
-            </div>
-            <div className="emergency-plan__support-item">
-              <TextField
-                variant="outlined"
-                label="Phone Number"
-                id="supportPerson3Phone"
-                className="emergency-plan__textfield"
-                size="small"
-              />
-            </div>
-          </div>
         </div>
         <div className="emergency-plan__sub-section">
-          <h2 className="emergency-plan__subheader">
-            Professional Support System
-          </h2>
+          <h2 className="emergency-plan__subheader">Professional Supports</h2>
           <div className="emergency-plan__support">
             <div className="emergency-plan__support-item">
               <TextField
@@ -178,18 +156,9 @@ function EmergencyPlan() {
               multiline
               rows={4}
               variant="outlined"
-              label="Self-Soothing Techniques"
+              label="Self-Soothing and Distractions"
               id="selfSootheMethods"
-              helperText="Your favorite ways to self-soothe."
-              className="emergency-plan__crisis-plan"
-            />
-            <TextField
-              multiline
-              rows={4}
-              variant="outlined"
-              label="Distraction Strategies"
-              id="distractionStrategies"
-              helperText="Go-to strategies for distraction during a crisis."
+              helperText="Go-to strategies for self-soothing and distracting yourself."
               className="emergency-plan__crisis-plan"
             />
           </div>
