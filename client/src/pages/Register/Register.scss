@@ -1,0 +1,13 @@
+@use "../../styles/partials/variables" as *;
+
+.register {
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(
+    to bottom right,
+    $app-turq-light,
+    $app-turq-extra-dark
+  );
+  height: 100vh;
+  z-index: 100000;
+}

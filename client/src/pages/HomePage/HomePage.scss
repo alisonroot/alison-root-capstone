@@ -10,8 +10,26 @@
 
   &__container {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     width: 100vw;
+    padding: 1rem;
+  }
+
+  &__menu-button {
+    height: 24px;
+    background-color: unset;
+    border: none;
+  }
+
+  &__menu-icon {
+    color: $almost-black;
+  }
+
+  &__logout-button {
+    margin: 1rem;
+    border: none;
+    background-color: unset;
+    line-height: normal;
   }
 
   &__title {
@@ -25,8 +43,8 @@
 
   &__round-button {
     position: absolute;
-    bottom: 8rem;
-    right: 3rem;
+    bottom: 10rem;
+    right: 6rem;
     border-radius: 50%;
     border: none;
     // background-color: $app-blue;
@@ -50,11 +68,12 @@
 
 .intensity-label {
   position: absolute;
-  top: 50%;
+  top: 47%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   margin-top: 2rem;
+  margin-left: 3rem;
 
   &__container {
     width: 8rem;

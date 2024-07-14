@@ -8,12 +8,37 @@ import { styled, Box } from "@mui/system";
 // const orange = "#FC8E24";
 // const red = "#FF0909";
 
-const blueGreen = "#25b9af";
-const green = "#92C369";
-const yellow = "#ffcc23";
-const orange = "#FC8E24";
-const red = "#FF0909";
-// const gradient = `linear-gradient(0deg, ${blueGreen}, ${green}, ${yellow}, ${orange}, ${red})`;
+// const blueGreen = "#25b9af";
+// const green = "#92C369";
+// const yellow = "#ffcc23";
+// const orange = "#FC8E24";
+// const red = "#FF0909";
+
+// const blueGreen = "#137c78";
+// const green = "#33b3b2";
+// const yellow = "#ffbe2f";
+// const orange = "#f79621";
+// const red = "#e36849";
+
+const blueGreen = "#008083";
+const green = "#249ea0";
+const yellow = "#faab36";
+const orange = "#f78104";
+const red = "#fd5901";
+// background: linear-gradient(0deg, #008083, #249ea0, #faab36, #f78104, #fd5901);;
+
+// const blueGreen = "#8EB99B";
+// const green = "#C0DEB2";
+// const yellow = "#EFF3C6";
+// const orange = "#F3D587";
+// const red = "#F68851";
+
+// const blueGreen = "#0395A7";
+// const green = "#78BAAE";
+// const yellow = "#FDB36A";
+// const orange = "#FF751A";
+// const red = "#FE3D00";
+// background: linear-gradient(0deg, #0395A7, #78BAAE, #FDB36A, #FF751A, #FE3D00);;
 
 const getTrackColor = (value) => {
   if (value <= 15) return blueGreen;
@@ -44,7 +69,11 @@ const StyledSlider = styled(BaseSlider)(
     background-color: currentColor;
     opacity: 0.6;
     background: linear-gradient(0deg, rgba(0,188,242,1) 0%, rgba(250,186,44,1) 50%, rgba(243,72,26,1) 80%, rgba(255,9,9,1) 100%);
-    background: linear-gradient(0deg, #25b9af, #92C369, #ffcc23, #FC8E24, #FF0909);;
+    background: linear-gradient(0deg, #25b9af, #92C369, #ffcc23, #FC8E24, #FF0909);
+    background: linear-gradient(0deg, #137c78, #33b3b2, #ffbe2f, #f79621, #e36849);
+    background: linear-gradient(0deg, #008083, #249ea0, #faab36, #f78104, #fd5901);;
+    //  background: linear-gradient(0deg, #8EB99B, #C0DEB2, #EFF3C6, #F3D587, #F68851);
+    // background: linear-gradient(0deg, #0395A7, #78BAAE, #FDB36A, #FF751A, #FE3D00);;
     z-index: 1;
     display: flex;
     flex-direction: column;
@@ -163,7 +192,7 @@ export default function Thermometer({ intensity, onChange }) {
       sx={{
         position: "absolute",
         left: "50%",
-        top: "50%",
+        top: "47%",
         transform: "translate(-50%, -50%) scale(2.5)",
         display: "flex",
         justifyContent: "center",

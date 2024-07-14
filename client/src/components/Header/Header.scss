@@ -1,0 +1,20 @@
+.header {
+  padding: 2rem 2rem 0;
+  display: flex;
+  justify-content: space-between;
+
+  &__logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__logo {
+    width: 2rem;
+  }
+
+  &__logo-text {
+    font-size: 19px;
+    font-family: "Lato", sans-serif;
+  }
+}

@@ -1,35 +1,35 @@
 [
   {
     "label": "Crisis",
-    "color": "#FF0909",
+    "color": "#fd5901",
     "description": "Calm yourself and self‑soothe",
     "threshold": 95,
     "questionId": "5"
   },
   {
     "label": "High",
-    "color": "#FC8E24",
+    "color": "#f78104",
     "description": "Practice accepting your current reality",
     "threshold": 75,
     "questionId": "4"
   },
   {
     "label": "Medium",
-    "color": "#ffcc23",
+    "color": "#faab36",
     "description": "Recognize your feelings and choose actions",
     "threshold": 50,
     "questionId": "3"
   },
   {
     "label": "Low",
-    "color": "#92C369",
+    "color": "#249ea0",
     "description": "Grounding and breathing techniques",
     "threshold": 30,
     "questionId": "2"
   },
   {
     "label": "Feeling Fine",
-    "color": "#25b9af",
+    "color": "#008083",
     "description": "Practice staying in the moment",
     "threshold": 15,
     "questionId": "1"

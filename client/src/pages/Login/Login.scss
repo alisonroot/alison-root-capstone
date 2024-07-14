@@ -1,0 +1,18 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__button {
+    margin: 1rem;
+    border: none;
+    background-color: unset;
+    line-height: normal;
+  }
+}

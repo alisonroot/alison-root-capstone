@@ -1,7 +1,6 @@
 import Modal from "react-modal";
 import "./FitFactsModal.scss";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
-import Button from "../Button/Button";
 
 function FitFactsModal({ isOpen, closeModal }) {
   return (

@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams, Link } from "react-router-dom";
 import SkillListItem from "../../components/SkillListItem/SkillListItem";
 import { useAuth } from "../../hooks/useAuth";
 import "./SkillsLibrary.scss";
+import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -160,6 +161,9 @@ function SkillsLibrary() {
   return (
     <div className="skills-library">
       <div className="skills-library__header">
+        <Link to={"/"}>
+          <ArrowBackRoundedIcon className="skills-library__back-icon" />
+        </Link>
         <h1 className="skills-library__header-text">Technique Library</h1>
       </div>
       <div className="skills-library__list-container">

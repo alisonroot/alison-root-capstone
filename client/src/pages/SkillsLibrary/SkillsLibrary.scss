@@ -6,13 +6,27 @@
   &__header {
     border-bottom: 1px solid lightgray;
     width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 2rem 1rem;
+    gap: 0.5rem;
+  }
+
+  &__back-icon {
+    color: black;
+
+    &:link,
+    &:active,
+    &:hover,
+    &:visited {
+      color: black;
+    }
   }
 
   &__header-text {
     font-weight: 500;
     font-size: 28px;
     // font-family: "Lato", sans-serif;
-    padding: 2rem;
   }
 
   &__list-container {

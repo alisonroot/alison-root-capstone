@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import "./SkillDetails.scss";
 import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
+import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -113,7 +114,12 @@ function SkillDetails() {
   return (
     <div className="skill-details">
       <div className="skill-details__header">
-        <h1 className="skill-details__name">{name}</h1>
+        <div className="skill-details__header-text">
+          <Link to={"/skills/all"}>
+            <ArrowBackRoundedIcon className="skill-details__back-icon" />
+          </Link>
+          <h1 className="skill-details__name">{name}</h1>
+        </div>
         <button className="skill-details__favourite" onClick={toggleFavourite}>
           {favourite_id ? (
             <FavoriteRoundedIcon className="skill-details__favourite-icon skill-details__favourite-icon--filled" />

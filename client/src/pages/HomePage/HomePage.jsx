@@ -9,12 +9,17 @@ import FilterQuestion from "../FilterQuestion/FilterQuestion";
 import intensityLevels from "../../data/intensity-levels.json";
 import ManageSearchRoundedIcon from "@mui/icons-material/ManageSearchRounded";
 import Logo from "../../../public/logo.png";
+import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import Drawer from "@mui/material/Drawer";
+import { useAuth } from "../../hooks/useAuth";
 
 function HomePage() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [intensity, setIntensity] = useState(35);
   const [isQuestionModalOpen, setIsQuestionModalOpen] = useState(false);
   const [currentQuestionId, setCurrentQuestionId] = useState(null);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const { logout } = useAuth();
 
   const handleChange = (newIntensity) => {
     setIntensity(newIntensity);
@@ -52,10 +57,39 @@ function HomePage() {
     openQuestionModal(questionId);
   };
 
+  const toggleDrawer = (newOpen) => () => {
+    setDrawerOpen(newOpen);
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
+
   return (
     <main className="home-page">
       <div className="home-page__container">
-        {/* <img src={Logo} alt="app logo" /> */}
+        <button className="home-page__menu-button" onClick={toggleDrawer(true)}>
+          <MenuRoundedIcon className="home-page__menu-icon" />
+        </button>
+        <Drawer open={drawerOpen} onClose={toggleDrawer(false)}>
+          <div
+            className="home-page__drawer"
+            role="presentation"
+            onClick={toggleDrawer(false)}
+          >
+            <ul>
+              <li>
+                <button
+                  className="home-page__logout-button"
+                  onClick={handleLogout}
+                >
+                  Sign out
+                </button>
+              </li>
+            </ul>
+          </div>
+        </Drawer>
         {/* <h1 className="home-page__title">Emotional intensity</h1> */}
       </div>
       <div className="intensity-label">

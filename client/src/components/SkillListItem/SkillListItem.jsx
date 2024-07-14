@@ -24,10 +24,12 @@ function SkillListItem({
     <Link className="skill-details-link" to={`/skills/${id}`}>
       <div className="skill-list-item">
         <div className="skill-list-item__text">
-          <h2 className="skill-list-item__title">{name}</h2>
-          <p className="skill-list-item__preview">{preview}</p>
+          <div className="skill-list-item__header">
+            <h2 className="skill-list-item__title">{name}</h2>
+            <p className="skill-list-item__preview">{preview}</p>
 
-          <p className="skill-list-item__tag">{tag}</p>
+            <p className="skill-list-item__tag">{tag}</p>
+          </div>
         </div>
         <div className="skill-list-item__extras">
           <button

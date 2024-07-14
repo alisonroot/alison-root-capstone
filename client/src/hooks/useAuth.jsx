@@ -1,6 +1,4 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { useLocalStorage } from "./useLocalStorage";
 import axios from "axios";
 
 const AuthContext = createContext();
@@ -10,13 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
 
-  const login = async () => {
-    const token = sessionStorage.getItem("token");
-
-    if (!token) {
-      return setFailedAuth(true);
-    }
-
+  const login = async (token) => {
     try {
       const response = await axios.get("http://localhost:8080/auth/profile", {
         headers: {
@@ -25,11 +17,11 @@ export const AuthProvider = ({ children }) => {
       });
 
       setUser(response.data);
+      setFailedAuth(false);
     } catch (error) {
       console.error("Error fetching user profile:", error);
       setFailedAuth(true);
     }
-
     setIsLoading(false);
   };
 
@@ -37,36 +29,28 @@ export const AuthProvider = ({ children }) => {
     sessionStorage.removeItem("token");
     setUser(null);
     setFailedAuth(true);
+    setIsLoading(false);
   };
 
   useEffect(() => {
-    login();
+    const token = sessionStorage.getItem("token");
+
+    if (!token) {
+      setFailedAuth(true);
+      setIsLoading(false);
+    } else {
+      login(token);
+    }
   }, []);
 
   const authValues = {
     user,
     login,
     logout,
+    isLoading,
+    failedAuth,
+    setFailedAuth,
   };
-
-  if (failedAuth) {
-    return (
-      <main className="dashboard">
-        <p>You must be logged in to see this page.</p>
-        <p>
-          <Link to="/login">Log in</Link>
-        </p>
-      </main>
-    );
-  }
-
-  if (isLoading) {
-    return (
-      <main className="dashboard">
-        <p>Loading...</p>
-      </main>
-    );
-  }
 
   return (
     <AuthContext.Provider value={authValues}>{children}</AuthContext.Provider>
@@ -74,5 +58,6 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuth = () => {
-  return useContext(AuthContext);
+  const context = useContext(AuthContext);
+  return context;
 };

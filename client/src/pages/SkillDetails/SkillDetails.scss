@@ -9,8 +9,26 @@
     border-bottom: 1px solid lightgrey;
     // width: 100vw;
     display: flex;
-    padding: 2rem;
+    padding: 2rem 2rem 2rem 1rem;
     justify-content: space-between;
+  }
+
+  &__back-icon {
+    color: black;
+
+    &:link,
+    &:active,
+    &:hover,
+    &:visited {
+      color: black;
+    }
+  }
+
+  &__header-text {
+    display: flex;
+    align-items: center;
+    // padding: 2rem 1rem;
+    gap: 0.5rem;
   }
 
   &__name {
