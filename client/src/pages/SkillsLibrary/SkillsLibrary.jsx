@@ -167,7 +167,7 @@ function SkillsLibrary() {
   } else if (intensity) {
     headerText = "Techniques by Intensity Level";
   } else {
-    headerText = "All Techniques";
+    headerText = "All Techniques Library";
   }
 
   let backLink;
