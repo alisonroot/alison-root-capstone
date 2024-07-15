@@ -38,6 +38,7 @@
 
 ## About The Project
 
+<p>
     Wiser Mind is a comprehensive app designed to assist users in managing their emotions through Dialectical Behavior Therapy (DBT) techniques. Whether you're dealing with anxiety, stress, or any other emotional distress, Wiser Mind provides a range of tools to help you find balance.
 
     Key Features:
@@ -45,6 +46,8 @@
       - Detailed skill categories
       - Customizable emergency plans
       - User-friendly interface
+
+</p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
