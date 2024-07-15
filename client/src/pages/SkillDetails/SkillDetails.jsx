@@ -84,8 +84,7 @@ function SkillDetails() {
     return <p>Loading...</p>;
   }
 
-  const { name, content, explanation, is_acronym, tag, favourite_id } =
-    skillData;
+  const { name, content, explanation, tag, favourite_id } = skillData;
 
   const renderContentWithLineBreaks = (content) => {
     if (!content) return null;
@@ -95,21 +94,6 @@ function SkillDetails() {
       </p>
     ));
   };
-
-  // const renderContent = (content) => {
-  //   const sentences = content.split("\n");
-  //   return sentences.map((sentence, index) => {
-  //     const words = sentence.split(" ");
-  //     const firstWord = words[0];
-  //     const remainingWords = words.slice(1).join(" ");
-  //     return (
-  //       <p key={index}>
-  //         <span className="skill-details__acronym-word">{firstWord}</span>{" "}
-  //         {remainingWords}
-  //       </p>
-  //     );
-  //   });
-  // };
 
   return (
     <div className="skill-details">

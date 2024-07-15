@@ -1,44 +1,13 @@
 import * as React from "react";
 import { Slider as BaseSlider, sliderClasses } from "@mui/base/Slider";
 import { styled, Box } from "@mui/system";
-
-// const blueGreen = "#7D9D96";
-// const green = "#BCAC61";
-// const yellow = "#FABA2C";
-// const orange = "#FC8E24";
-// const red = "#FF0909";
-
-// const blueGreen = "#25b9af";
-// const green = "#92C369";
-// const yellow = "#ffcc23";
-// const orange = "#FC8E24";
-// const red = "#FF0909";
-
-// const blueGreen = "#137c78";
-// const green = "#33b3b2";
-// const yellow = "#ffbe2f";
-// const orange = "#f79621";
-// const red = "#e36849";
+import "./Thermometer.scss";
 
 const blueGreen = "#008083";
 const green = "#249ea0";
 const yellow = "#faab36";
 const orange = "#f78104";
 const red = "#fd5901";
-// background: linear-gradient(0deg, #008083, #249ea0, #faab36, #f78104, #fd5901);;
-
-// const blueGreen = "#8EB99B";
-// const green = "#C0DEB2";
-// const yellow = "#EFF3C6";
-// const orange = "#F3D587";
-// const red = "#F68851";
-
-// const blueGreen = "#0395A7";
-// const green = "#78BAAE";
-// const yellow = "#FDB36A";
-// const orange = "#FF751A";
-// const red = "#FE3D00";
-// background: linear-gradient(0deg, #0395A7, #78BAAE, #FDB36A, #FF751A, #FE3D00);;
 
 const getTrackColor = (value) => {
   if (value <= 15) return blueGreen;
@@ -68,12 +37,7 @@ const StyledSlider = styled(BaseSlider)(
     border-radius: 43px;
     background-color: currentColor;
     opacity: 0.6;
-    background: linear-gradient(0deg, rgba(0,188,242,1) 0%, rgba(250,186,44,1) 50%, rgba(243,72,26,1) 80%, rgba(255,9,9,1) 100%);
-    background: linear-gradient(0deg, #25b9af, #92C369, #ffcc23, #FC8E24, #FF0909);
-    background: linear-gradient(0deg, #137c78, #33b3b2, #ffbe2f, #f79621, #e36849);
     background: linear-gradient(0deg, #008083, #249ea0, #faab36, #f78104, #fd5901);;
-    //  background: linear-gradient(0deg, #8EB99B, #C0DEB2, #EFF3C6, #F3D587, #F68851);
-    // background: linear-gradient(0deg, #0395A7, #78BAAE, #FDB36A, #FF751A, #FE3D00);;
     z-index: 1;
     display: flex;
     flex-direction: column;
@@ -156,11 +120,11 @@ const Mark = styled("div")`
 
 const Reflections = styled("div")`
   position: absolute;
+  top: 43px;
+  left: 9px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-right: 19px;
-  margin-top: -13px;
 `;
 
 const ReflectionLine = styled("div")`
@@ -172,7 +136,7 @@ const ReflectionLine = styled("div")`
 `;
 
 const ReflectionLowerLine = styled(ReflectionLine)`
-  height: 20px; // Height of the lower line
+  height: 20px;
 `;
 
 export default function Thermometer({ intensity, onChange }) {
@@ -188,28 +152,8 @@ export default function Thermometer({ intensity, onChange }) {
   }, [intensity]);
 
   return (
-    <Box
-      sx={{
-        position: "absolute",
-        left: "50%",
-        top: "47%",
-        transform: "translate(-50%, -50%) scale(2.5)",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        transformOrigin: "center",
-      }}
-    >
-      <Box
-        className="thermometer"
-        sx={{
-          height: 200,
-          position: "relative",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+    <div className="thermometer">
+      <div className="thermometer__container">
         <Reflections>
           <ReflectionLine />
           <ReflectionLowerLine />
@@ -229,7 +173,7 @@ export default function Thermometer({ intensity, onChange }) {
           value={value}
           onChange={handleChange}
         />
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 }

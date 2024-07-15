@@ -3,22 +3,21 @@
 
 .home-page {
   display: flex;
-  // align-items: center;
-  padding: 1rem;
-  //   justify-content: center;
-  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 4.375rem);
 
-  &__container {
+  &__header {
+    padding: 2rem;
     display: flex;
-    justify-content: start;
-    width: 100vw;
-    padding: 1rem;
+    justify-content: space-between;
   }
 
   &__menu-button {
     height: 24px;
     background-color: unset;
     border: none;
+    padding: 1rem;
   }
 
   &__menu-icon {
@@ -26,10 +25,43 @@
   }
 
   &__logout-button {
-    margin: 1rem;
+    margin: 2rem 4rem 0 2rem;
     border: none;
     background-color: unset;
     line-height: normal;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+  }
+
+  &__button-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+    gap: 1rem;
+  }
+
+  &__header-button {
+    border-radius: 50%;
+    border: none;
+    box-shadow: rgba(180, 170, 151, 0.2) 0px 2px 8px 0px;
+  }
+
+  &__emergency-button {
+    background-image: linear-gradient(to top left, #fd5901, #faab36);
+  }
+
+  &__button-icon {
+    color: white;
+    padding: 0.8rem;
+  }
+
+  &__info-button {
+    background-color: $app-turq-mid;
+    background-image: linear-gradient(
+      to bottom right,
+      $app-turq-light,
+      $app-turq-dark
+    );
   }
 
   &__title {
@@ -41,39 +73,29 @@
     text-align: center;
   }
 
-  &__round-button {
-    position: absolute;
-    bottom: 10rem;
-    right: 6rem;
-    border-radius: 50%;
-    border: none;
-    // background-color: $app-blue;
-    background-color: $app-turq-mid;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
-      rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-    box-shadow: rgba(180, 170, 151, 0.2) 0px 2px 8px 0px;
-    background-image: linear-gradient(
-      to bottom right,
-      $app-turq-light,
-      $app-turq-dark
-    );
+  &__filter-button-container {
+    margin: 2rem 2rem 4rem;
   }
 
-  &__search-icon {
+  &__filter-icon {
     color: white;
     font-size: 36px !important;
     padding: 1.5rem;
   }
+
+  &__thermometer {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    gap: 1rem;
+    padding: 0 4rem 0 1rem;
+  }
 }
 
 .intensity-label {
-  position: absolute;
-  top: 47%;
-  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   margin-top: 2rem;
-  margin-left: 3rem;
 
   &__container {
     width: 8rem;
@@ -84,7 +106,7 @@
   }
 
   &__level {
-    font-size: 22px;
+    font-size: 20px;
     font-family: "Open Sans", sans-serif;
     font-weight: 500;
     color: $app-light-grey;
@@ -94,7 +116,7 @@
   &__description {
     font-family: "Open Sans", sans-serif;
     font-weight: 400;
-    font-size: 11px;
+    font-size: 10px;
     line-height: 12px;
     color: rgb(180, 170, 151);
     color: $app-light-grey;

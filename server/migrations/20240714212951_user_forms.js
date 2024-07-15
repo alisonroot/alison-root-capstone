@@ -25,7 +25,6 @@ export function up(knex) {
     table.text("stay_safe");
     table.text("strengths_resources");
     table.text("self_soothe");
-    table.timestamps(true, true);
   });
 }
 

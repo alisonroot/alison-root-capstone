@@ -1,19 +1,111 @@
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./EmergencyPlan.scss";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import TextField from "@mui/material/TextField";
-import Button from "../../components/Button/Button";
+import ButtonColour from "../../components/ButtonColour/ButtonColour";
+
+const API_URL = import.meta.env.VITE_API_URL;
 
 function EmergencyPlan() {
-  const handleSubmit = () => {};
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    support_person_1_name: "",
+    support_person_1_phone: "",
+    support_person_2_name: "",
+    support_person_2_phone: "",
+    professional_support_1_name: "",
+    professional_support_1_phone: "",
+    professional_support_2_name: "",
+    professional_support_2_phone: "",
+    emergency_care_address: "",
+    emergency_care_phone: "",
+    warning_signs: "",
+    stay_safe: "",
+    strengths_resources: "",
+    self_soothe: "",
+  });
+
+  const [formId, setFormId] = useState(null);
+
+  const handleInputChange = (event) => {
+    const { id, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [id]: value,
+    }));
+  };
+
+  const fetchFormData = async () => {
+    try {
+      const authToken = sessionStorage.getItem("token");
+
+      const response = await axios.get(`${API_URL}/forms`, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      });
+      const { forms } = response.data;
+      if (forms && forms.length > 0) {
+        const existingForm = forms[0];
+        setFormData(existingForm);
+        setFormId(existingForm.id);
+      }
+    } catch (error) {
+      console.error("Error fetching form data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchFormData();
+  }, []);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const authToken = sessionStorage.getItem("token");
+
+      if (formId) {
+        if (
+          window.confirm(
+            "Save your plan as is? Empty fields may cause information you previously saved to be deleted."
+          )
+        ) {
+          await axios.put(`${API_URL}/forms/${formId}`, formData, {
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+            },
+          });
+          alert("Plan saved successfully");
+        } else {
+          return;
+        }
+      } else {
+        await axios.post(`${API_URL}/forms`, formData, {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        });
+        alert("Plan saved successfully");
+      }
+      navigate("/emergency");
+    } catch (error) {
+      console.error("Error submitting plan:", error);
+      alert("Couldn't save plan. Please try again.");
+    }
+  };
+
   return (
-    <form className="emergency-plan">
+    <form className="emergency-plan" onSubmit={handleSubmit}>
       <div className="emergency-plan__header">
         <div className="emergency-plan__header-text">
           <Link to={"/emergency"}>
             <ArrowBackRoundedIcon className="emergency-plan__back-icon" />
           </Link>
-          <h1 className="emergency-plan__title">Create Your Emergency Plan</h1>
+          <h1 className="emergency-plan__title">Your Emergency Plan</h1>
         </div>
       </div>
       <div className="emergency-plan__input-section">
@@ -24,18 +116,22 @@ function EmergencyPlan() {
               <TextField
                 variant="outlined"
                 label="Name"
-                id="supportPerson1Name"
+                id="support_person_1_name"
                 className="emergency-plan__textfield"
                 size="small"
+                value={formData.support_person_1_name}
+                onChange={handleInputChange}
               />
             </div>
             <div className="emergency-plan__support-item">
               <TextField
                 variant="outlined"
                 label="Phone Number"
-                id="supportPerson1Phone"
+                id="support_person_1_phone"
                 className="emergency-plan__textfield"
                 size="small"
+                value={formData.support_person_1_phone}
+                onChange={handleInputChange}
               />
             </div>
           </div>
@@ -44,18 +140,22 @@ function EmergencyPlan() {
               <TextField
                 variant="outlined"
                 label="Name"
-                id="supportPerson2Name"
+                id="support_person_2_name"
                 className="emergency-plan__textfield"
                 size="small"
+                value={formData.support_person_2_name}
+                onChange={handleInputChange}
               />
             </div>
             <div className="emergency-plan__support-item">
               <TextField
                 variant="outlined"
                 label="Phone Number"
-                id="supportPerson2Phone"
+                id="support_person_2_phone"
                 className="emergency-plan__textfield"
                 size="small"
+                value={formData.support_person_2_phone}
+                onChange={handleInputChange}
               />
             </div>
           </div>
@@ -67,18 +167,22 @@ function EmergencyPlan() {
               <TextField
                 variant="outlined"
                 label="Name"
-                id="professionalSupport1Name"
+                id="professional_support_1_name"
                 className="emergency-plan__textfield"
                 size="small"
+                value={formData.professional_support_1_name}
+                onChange={handleInputChange}
               />
             </div>
             <div className="emergency-plan__support-item">
               <TextField
                 variant="outlined"
                 label="Phone Number"
-                id="professionalSupport1Phone"
+                id="professional_support_1_phone"
                 className="emergency-plan__textfield"
                 size="small"
+                value={formData.professional_support_1_phone}
+                onChange={handleInputChange}
               />
             </div>
           </div>
@@ -87,18 +191,22 @@ function EmergencyPlan() {
               <TextField
                 variant="outlined"
                 label="Name"
-                id="professionalSupport2Name"
+                id="professional_support_2_name"
                 className="emergency-plan__textfield"
                 size="small"
+                value={formData.professional_support_2_name}
+                onChange={handleInputChange}
               />
             </div>
             <div className="emergency-plan__support-item">
               <TextField
                 variant="outlined"
                 label="Phone Number"
-                id="professionalSupport2Phone"
+                id="professional_support_2_phone"
                 className="emergency-plan__textfield"
                 size="small"
+                value={formData.professional_support_2_phone}
+                onChange={handleInputChange}
               />
             </div>
           </div>
@@ -109,14 +217,18 @@ function EmergencyPlan() {
             <TextField
               variant="outlined"
               label="Address"
-              id="emergencyCareAddress"
+              id="emergency_care_address"
               size="small"
+              value={formData.emergency_care_address}
+              onChange={handleInputChange}
             />
             <TextField
               variant="outlined"
               label="Phone Number"
-              id="emergencyCarePhoneNumber"
+              id="emergency_care_phone"
               size="small"
+              value={formData.emergency_care_phone}
+              onChange={handleInputChange}
             />
           </div>
         </div>
@@ -130,43 +242,52 @@ function EmergencyPlan() {
               rows={4}
               variant="outlined"
               label="Warning Signs"
-              id="warningSigns"
+              id="warning_signs"
               helperText="Signs that you might be heading into a crisis."
               className="emergency-plan__crisis-plan"
+              value={formData.warning_signs}
+              onChange={handleInputChange}
             />
             <TextField
               multiline
               rows={4}
               variant="outlined"
               label="Reasons to Stay Safe"
-              id="reasonsToStaySafe"
+              id="stay_safe"
               helperText="Motivation for managing your crisis effectively (eg. goals, plans)."
               className="emergency-plan__crisis-plan"
+              value={formData.stay_safe}
+              onChange={handleInputChange}
             />
             <TextField
               multiline
               rows={4}
               variant="outlined"
               label="Strengths and Resources"
-              id="strengthsAndResources"
+              id="strengths_resources"
               helperText="Personal strengths and available resources."
               className="emergency-plan__crisis-plan"
+              value={formData.strengths_resources}
+              onChange={handleInputChange}
             />
             <TextField
               multiline
               rows={4}
               variant="outlined"
               label="Self-Soothing and Distractions"
-              id="selfSootheMethods"
+              id="self_soothe"
               helperText="Go-to strategies for self-soothing and distracting yourself."
               className="emergency-plan__crisis-plan"
+              value={formData.self_soothe}
+              onChange={handleInputChange}
             />
           </div>
         </div>
-        <Button
+        <ButtonColour
           onClick={handleSubmit}
           buttonText="Save"
           extraClass="emergency-plan__submit-button"
+          type="submit"
         />
       </div>
     </form>

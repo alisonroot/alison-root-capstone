@@ -11,7 +11,6 @@ const API_URL = import.meta.env.VITE_API_URL;
 function SkillsLibrary() {
   const { category } = useParams();
   const { intensity } = useParams();
-  const { user } = useAuth();
   const location = useLocation();
 
   const [skillsList, setSkillsList] = useState([]);

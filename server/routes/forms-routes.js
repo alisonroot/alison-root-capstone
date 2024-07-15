@@ -10,6 +10,6 @@ const router = express.Router();
 
 router.post("/", authorize, createForm);
 router.put("/:formId", authorize, updateForm);
-router.get("/:userId", authorize, getForm);
+router.get("/", authorize, getForm);
 
 export default router;

@@ -1,0 +1,10 @@
+.thermometer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+
+  &__container {
+    transform: scale(2);
+  }
+}

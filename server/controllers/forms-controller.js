@@ -2,13 +2,15 @@ import initKnex from "knex";
 import configuration from "../knexfile.js";
 const knex = initKnex(configuration);
 
-const userId = req.user.id;
-
 const createForm = async (req, res) => {
-  const { id: user_id } = req.user;
-
   try {
-    await knex("emergency_plan").insert({ user_id });
+    const formData = req.body;
+
+    await knex("emergency_plan").insert({
+      user_id: req.user.id,
+      ...formData,
+    });
+
     res.status(201).json({ message: "Form added successfully" });
   } catch (error) {
     console.error("Error adding form: ", error);

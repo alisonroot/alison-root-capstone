@@ -4,13 +4,12 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FilterQuestion from "../FilterQuestion/FilterQuestion";
 import intensityLevels from "../../data/intensity-levels.json";
-import ManageSearchRoundedIcon from "@mui/icons-material/ManageSearchRounded";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import Drawer from "@mui/material/Drawer";
 import { useAuth } from "../../hooks/useAuth";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import CrisisAlertIcon from "@mui/icons-material/CrisisAlert";
-import HelpCenterOutlinedIcon from "@mui/icons-material/HelpCenterOutlined";
+import SosRoundedIcon from "@mui/icons-material/SosRounded";
+import ButtonColour from "../../components/ButtonColour/ButtonColour";
 
 function HomePage() {
   const navigate = useNavigate();
@@ -70,7 +69,7 @@ function HomePage() {
 
   return (
     <main className="home-page">
-      <div className="home-page__container">
+      <div className="home-page__header">
         <button className="home-page__menu-button" onClick={toggleDrawer(true)}>
           <MenuRoundedIcon className="home-page__menu-icon" />
         </button>
@@ -93,45 +92,60 @@ function HomePage() {
           </div>
         </Drawer>
         {/* <h1 className="home-page__title">Emotional intensity</h1> */}
-        <button
-          className="home-page__emergency-button"
-          onClick={handleEmergencyClick}
-        >
-          <CrisisAlertIcon className="home-page__emergency-icon" />
-        </button>
-      </div>
-      <div className="intensity-label">
-        {intensityLevels.map((level, index) => (
-          <div
-            className="intensity-label__container"
-            key={index}
-            onClick={() => handleLabelClick(level.threshold)}
+        <div className="home-page__button-container">
+          <button
+            className="home-page__header-button home-page__info-button"
+            onClick={handleEmergencyClick}
           >
-            <h2
-              className="intensity-label__level"
-              style={{
-                color:
-                  selectedIntensity.label === level.label ? level.color : "",
-              }}
-            >
-              {level.label}
-            </h2>
-            {selectedIntensity.label === level.label && (
-              <p className="intensity-label__description">
-                {level.description}
-              </p>
-            )}
-          </div>
-        ))}
+            <InfoOutlinedIcon className="home-page__button-icon" />
+          </button>
+          <button
+            className="home-page__header-button home-page__emergency-button"
+            onClick={handleEmergencyClick}
+          >
+            <SosRoundedIcon className="home-page__button-icon" />
+          </button>
+        </div>
       </div>
-      <Thermometer
-        className="thermometer"
-        intensity={intensity}
-        onChange={handleChange}
-      />
-      <button className="home-page__round-button" onClick={handleButtonClick}>
-        <ManageSearchRoundedIcon className="home-page__search-icon" />
-      </button>
+      <div className="home-page__thermometer">
+        <div className="intensity-label">
+          {intensityLevels.map((level, index) => (
+            <div
+              className="intensity-label__container"
+              key={index}
+              onClick={() => handleLabelClick(level.threshold)}
+            >
+              <h2
+                className="intensity-label__level"
+                style={{
+                  color:
+                    selectedIntensity.label === level.label ? level.color : "",
+                }}
+              >
+                {level.label}
+              </h2>
+              {selectedIntensity.label === level.label && (
+                <p className="intensity-label__description">
+                  {level.description}
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
+        <Thermometer
+          className="thermometer"
+          intensity={intensity}
+          onChange={handleChange}
+        />
+        <div className="home-page__thermometer-fill-box"></div>
+      </div>
+      <div className="home-page__filter-button-container">
+        <ButtonColour
+          onClick={handleButtonClick}
+          buttonText="See suggested techniques"
+          extraClass="home-page__filter-button"
+        />
+      </div>
       <FilterQuestion
         isOpen={isQuestionModalOpen}
         closeModal={closeQuestionModal}
