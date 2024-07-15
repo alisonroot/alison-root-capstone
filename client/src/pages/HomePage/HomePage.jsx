@@ -10,6 +10,7 @@ import { useAuth } from "../../hooks/useAuth";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import SosRoundedIcon from "@mui/icons-material/SosRounded";
 import ButtonColour from "../../components/ButtonColour/ButtonColour";
+import SkillModal from "../../components/SkillModal/SkillModal";
 
 function HomePage() {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ function HomePage() {
   const [isQuestionModalOpen, setIsQuestionModalOpen] = useState(false);
   const [currentQuestionId, setCurrentQuestionId] = useState(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
 
   const { logout } = useAuth();
 
@@ -67,6 +69,14 @@ function HomePage() {
     navigate("/emergency");
   };
 
+  const openInfoModal = () => {
+    setIsInfoModalOpen(true);
+  };
+
+  const closeInfoModal = () => {
+    setIsInfoModalOpen(false);
+  };
+
   return (
     <main className="home-page">
       <div className="home-page__header">
@@ -91,11 +101,10 @@ function HomePage() {
             </ul>
           </div>
         </Drawer>
-        {/* <h1 className="home-page__title">Emotional intensity</h1> */}
         <div className="home-page__button-container">
           <button
             className="home-page__header-button home-page__info-button"
-            onClick={handleEmergencyClick}
+            onClick={openInfoModal}
           >
             <InfoOutlinedIcon className="home-page__button-icon" />
           </button>
@@ -151,6 +160,13 @@ function HomePage() {
         closeModal={closeQuestionModal}
         questionId={currentQuestionId}
         color={selectedIntensity.color}
+      />
+      <SkillModal
+        isOpen={isInfoModalOpen}
+        closeModal={closeInfoModal}
+        modalType="info"
+        contentLabel="Information Modal"
+        closeText="Close"
       />
     </main>
   );

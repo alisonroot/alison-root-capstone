@@ -83,7 +83,6 @@ function SkillsLibrary() {
       setSkillsList(data);
     } catch (error) {
       console.error("Couldn't get list of skills", error);
-      // setError("Failed to fetch skills. Please try again later.");
     }
   };
 

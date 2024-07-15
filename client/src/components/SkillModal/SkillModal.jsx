@@ -118,8 +118,75 @@ function SkillModal({
     </>
   );
 
-  let modalContent =
-    modalType === "check-facts" ? checkFactsContent : stopContent;
+  const infoContent = (
+    <>
+      <h2 className="skill-modal__header">About DBT</h2>
+      <div className="skill-modal__divider"></div>
+      <div className="skill-modal__text">
+        <div className="skill-modal__section">
+          <h3 className="skill-modal__subheader">What is DBT?</h3>
+          <p>
+            Dialectical Behavior Therapy (DBT) is a type of cognitive-behavioral
+            therapy that focuses on helping individuals manage emotions, cope
+            with stress, and improve relationships.
+          </p>
+        </div>
+        <div className="skill-modal__section">
+          <h3 className="skill-modal__subheader">Wise Mind</h3>
+          <p>
+            Wise Mind is the balanced part of us that comprises both our
+            Emotional Mind and Rational Mind. It is the place where our emotions
+            and reason work together to make decisions.
+          </p>
+        </div>
+        <div className="skill-modal__section">
+          <h3 className="skill-modal__subheader">Core Skills</h3>
+          <p>
+            <strong>Mindfulness:</strong> Being present in the moment and aware
+            of your thoughts, feelings, and surroundings without judgment.
+          </p>
+          <p>
+            <strong>Distress Tolerance:</strong> Managing and surviving crises
+            without making the situation worse.
+          </p>
+          <p>
+            <strong>Emotion Regulation:</strong> Understanding and reducing
+            vulnerability to intense emotions and changing unwanted emotions.
+          </p>
+          <p>
+            <strong>Interpersonal Effectiveness:</strong> Navigating
+            relationships and interactions with others in a healthy and balanced
+            way.
+          </p>
+        </div>
+        <div className="skill-modal__section">
+          <h3 className="skill-modal__subheader">Why Use DBT?</h3>
+          <p>
+            DBT skills can help you handle emotional distress, improve
+            relationships, and create a life worth living by promoting
+            acceptance and change.
+          </p>
+        </div>
+        <div className="skill-modal__section">
+          <h3 className="skill-modal__subheader">Conclusion</h3>
+          <p>
+            Embracing DBT can lead to significant improvements in emotional
+            regulation, distress tolerance, interpersonal skills, and overall
+            mental health.
+          </p>
+        </div>
+      </div>
+    </>
+  );
+
+  let modalContent;
+  if (modalType === "check-facts") {
+    modalContent = checkFactsContent;
+  } else if (modalType === "stop") {
+    modalContent = stopContent;
+  } else {
+    modalContent = infoContent;
+  }
 
   return (
     <div className="skill-modal">
