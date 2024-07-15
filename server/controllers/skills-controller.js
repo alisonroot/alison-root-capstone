@@ -99,8 +99,6 @@ const getFavouritedSkills = async (req, res) => {
 const getSkillById = async (req, res) => {
   const id = req.params.id;
   try {
-    console.log("User ID:", req.user.id);
-
     const skills = await knex("skills")
       .select("skills.*", "favourited_skills.id as favourite_id")
       .leftJoin("favourited_skills", function () {
@@ -118,7 +116,7 @@ const getSkillById = async (req, res) => {
     }
     res.json(skill);
   } catch (error) {
-    console.log("Error retrieving skill:", error);
+    console.error("Error retrieving skill:", error);
     res.status(500).json({ message: "Unable to retrieve skill" });
   }
 };

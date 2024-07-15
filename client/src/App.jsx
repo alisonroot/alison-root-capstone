@@ -5,7 +5,6 @@ import NavBar from "./components/NavBar/NavBar";
 import HomePage from "./pages/HomePage/HomePage";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
-import FilterQuestion from "./pages/FilterQuestion/FilterQuestion";
 import SkillsLibrary from "./pages/SkillsLibrary/SkillsLibrary";
 import SkillDetails from "./pages/SkillDetails/SkillDetails";
 import EmergencyPage from "./pages/EmergencyPage/EmergencyPage";
@@ -25,14 +24,6 @@ function App() {
             element={
               <ProtectedRoute>
                 <HomePage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/question/:questionId"
-            element={
-              <ProtectedRoute>
-                <FilterQuestion />
               </ProtectedRoute>
             }
           />

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import Button from "../../components/Button/Button";
-import "./FilterQuestion.scss";
-import SkillModal from "../../components/SkillModal/SkillModal";
+import Button from "../Button/Button";
+import "./FilterQuestionModal.scss";
+import SkillModal from "../SkillModal/SkillModal";
 import questions from "../../data/filter-questions.json";
 import Modal from "react-modal";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
@@ -54,28 +54,18 @@ function FilterQuestion({ questionId, isOpen, closeModal, color }) {
     const question = questions.find((question) => question.id === questionId);
     if (question) {
       setQuestion(question);
-
-      if (questionId === 5) {
-        console.log("Opening Skill Modal for question 5");
-        setIsSkillModalOpen(true);
-      } else {
-        console.log(`Question ID ${questionId} does not trigger Skill Modal`);
-      }
     }
   }, [questionId]);
 
   const openSkillModal = () => {
-    console.log("opening skill modal manually");
     setIsSkillModalOpen(true);
   };
 
   const closeSkillModal = () => {
-    console.log("closing skill modal");
     setIsSkillModalOpen(false);
   };
 
   const handleButtonClick = () => {
-    console.log("button clicked");
     openSkillModal();
   };
 

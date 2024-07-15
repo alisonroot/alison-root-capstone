@@ -6,12 +6,12 @@
   background-color: white;
   color: $almost-black;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: rgba(180, 170, 151, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(180, 170, 151, 0.2) 0rem 0.125rem 0.5rem 0rem;
   cursor: pointer;
 
   &:hover {
@@ -21,7 +21,7 @@
   &__text {
     font-family: "Open Sans", sans-serif;
     font-weight: 400;
-    font-size: 15px;
-    line-height: 15px;
+    font-size: 0.9375rem;
+    line-height: 0.9375rem;
   }
 }

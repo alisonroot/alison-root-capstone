@@ -7,21 +7,15 @@
   width: 100vw;
 
   &__header {
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 0.0625rem solid lightgrey;
     display: flex;
-    padding: 2rem 2rem 2rem 1rem;
+    padding: 2rem;
     justify-content: space-between;
   }
 
-  &__back-icon {
-    color: black;
-
-    &:link,
-    &:active,
-    &:hover,
-    &:visited {
-      color: black;
-    }
+  &__list-button {
+    background-color: unset;
+    border: none;
   }
 
   &__header-text {
@@ -32,7 +26,7 @@
 
   &__title {
     font-weight: 500;
-    font-size: 28px;
+    font-size: 1.75rem;
   }
 
   &__input-section {
@@ -45,7 +39,7 @@
   }
 
   &__subheader {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 500;
   }
 

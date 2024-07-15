@@ -14,7 +14,7 @@
   }
 
   &__menu-button {
-    height: 24px;
+    height: 1.5rem;
     background-color: unset;
     border: none;
     padding: 1rem;
@@ -30,7 +30,7 @@
     background-color: unset;
     line-height: normal;
     font-family: "Open Sans", sans-serif;
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 
   &__button-container {
@@ -43,7 +43,7 @@
   &__header-button {
     border-radius: 50%;
     border: none;
-    box-shadow: rgba(180, 170, 151, 0.2) 0px 2px 8px 0px;
+    box-shadow: rgba(180, 170, 151, 0.2) 0rem 0.125rem 0.5rem 0rem;
   }
 
   &__emergency-button {
@@ -69,7 +69,7 @@
     top: 8rem;
     color: $almost-black;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 1.5rem;
     text-align: center;
   }
 
@@ -79,7 +79,7 @@
 
   &__filter-icon {
     color: white;
-    font-size: 36px !important;
+    font-size: 2.25rem !important;
     padding: 1.5rem;
   }
 
@@ -106,7 +106,7 @@
   }
 
   &__level {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-family: "Open Sans", sans-serif;
     font-weight: 500;
     color: $app-light-grey;
@@ -116,8 +116,8 @@
   &__description {
     font-family: "Open Sans", sans-serif;
     font-weight: 400;
-    font-size: 10px;
-    line-height: 12px;
+    font-size: 0.625rem;
+    line-height: 0.75rem;
     color: rgb(180, 170, 151);
     color: $app-light-grey;
     text-align: end;

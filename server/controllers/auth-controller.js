@@ -24,7 +24,7 @@ const registerNewUser = async (req, res) => {
     res.status(201).send("Registered successfully");
   } catch (err) {
     console.error(err);
-    res.status(400).send("Failed registration");
+    res.status(500).send("Failed registration");
   }
 };
 
@@ -74,7 +74,6 @@ const getUserProfile = async (req, res) => {
   let decodedToken;
   try {
     decodedToken = jwt.verify(authToken, process.env.JWT_SECRET);
-    console.log("JWT Payload: ", decodedToken);
   } catch (err) {
     return res.status(401).send("Invalid auth token");
   }

@@ -6,21 +6,15 @@
   height: 100%;
 
   &__header {
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 0.0625rem solid lightgrey;
     display: flex;
-    padding: 2rem 2rem 2rem 1rem;
+    padding: 2rem;
     justify-content: space-between;
   }
 
-  &__back-icon {
-    color: black;
-
-    &:link,
-    &:active,
-    &:hover,
-    &:visited {
-      color: black;
-    }
+  &__back-button {
+    background-color: unset;
+    border: none;
   }
 
   &__header-text {
@@ -31,7 +25,7 @@
 
   &__name {
     font-weight: 500;
-    font-size: 28px;
+    font-size: 1.75rem;
   }
 
   &__favourite {
@@ -42,7 +36,7 @@
   &__favourite-icon {
     color: $almost-black;
     cursor: pointer;
-    font-size: 40px !important;
+    font-size: 2.5rem !important;
 
     &--filled {
       color: $app-turq-dark !important;
@@ -70,9 +64,9 @@
 
   &__tag {
     white-space: nowrap;
-    border-radius: 20px;
+    border-radius: 1.25rem;
     padding: 0.25rem 0.75rem;
-    font-size: 13px;
+    font-size: 0.8125rem;
     color: white;
     background-color: $app-turq-mid;
     text-transform: uppercase;

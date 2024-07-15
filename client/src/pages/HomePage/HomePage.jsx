@@ -2,7 +2,7 @@ import "./HomePage.scss";
 import Thermometer from "../../components/Thermometer/Thermometer";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import FilterQuestion from "../FilterQuestion/FilterQuestion";
+import FilterQuestion from "../../components/FilterQuestionModal/FilterQuestionModal";
 import intensityLevels from "../../data/intensity-levels.json";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import Drawer from "@mui/material/Drawer";
@@ -166,7 +166,7 @@ function HomePage() {
         closeModal={closeInfoModal}
         modalType="info"
         contentLabel="Information Modal"
-        closeText="Close"
+        closeText="CLOSE"
       />
     </main>
   );

@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../../hooks/useAuth";
+import { TextField } from "@mui/material";
+import ButtonColour from "../../components/ButtonColour/ButtonColour";
 
 function Login() {
   const [error, setError] = useState(null);
@@ -44,19 +46,30 @@ function Login() {
 
   return (
     <main className="login">
+      <h2 className="register__logo">wiser mind</h2>
       <form className="login__form" onSubmit={handleSubmit}>
         <h1 className="login__title">Log In</h1>
-        <label htmlFor="email">Email Address</label>
-        <input type="text" name="email" id="email"></input>
-        <label htmlFor="password">Password</label>
-        <input type="text" name="password" id="password"></input>
-        <button className="login__button">Log In</button>
-        {error && <div className="login__message">{error}</div>}
+        <TextField
+          variant="standard"
+          label="Email Address"
+          className="register__input"
+          type="email"
+          id="email"
+        />
+        <TextField
+          variant="standard"
+          label="Password"
+          className="register__input"
+          type="password"
+          id="password"
+        />
+        {error && <p className="login__message">{error}</p>}
+        <ButtonColour extraClass="login__button" buttonText="Log In" />
       </form>
-      <p className="login__login-question">
-        Need an account?{" "}
-        <Link className="login__login-link" to="/register">
-          Sign Up
+      <p className="login__account-question">
+        Don't have an account?{" "}
+        <Link className="login__account-link" to="/register">
+          Create account
         </Link>
       </p>
     </main>

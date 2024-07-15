@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams, Link } from "react-router-dom";
-import { useAuth } from "../../hooks/useAuth";
+import { useParams, useNavigate } from "react-router-dom";
 import "./SkillDetails.scss";
 import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
@@ -11,7 +10,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 function SkillDetails() {
   const { id } = useParams();
-  const { user } = useAuth();
+  const navigate = useNavigate();
   const [skillData, setSkillData] = useState([]);
 
   const fetchSkillsById = async (id) => {
@@ -95,13 +94,20 @@ function SkillDetails() {
     ));
   };
 
+  const handleBackClick = () => {
+    navigate(-1);
+  };
+
   return (
     <div className="skill-details">
       <div className="skill-details__header">
         <div className="skill-details__header-text">
-          <Link to={"/skills/all"}>
+          <button
+            className="skill-details__back-button"
+            onClick={handleBackClick}
+          >
             <ArrowBackRoundedIcon className="skill-details__back-icon" />
-          </Link>
+          </button>
           <h1 className="skill-details__name">{name}</h1>
         </div>
         <button className="skill-details__favourite" onClick={toggleFavourite}>

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation, useParams, Link } from "react-router-dom";
 import SkillListItem from "../../components/SkillListItem/SkillListItem";
-import { useAuth } from "../../hooks/useAuth";
 import "./SkillsLibrary.scss";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 
@@ -44,7 +43,6 @@ function SkillsLibrary() {
           },
         }
       );
-      console.log(data);
       setSkillsList(data);
     } catch (error) {
       console.error("Couldn't get list of skills", error);
@@ -75,12 +73,17 @@ function SkillsLibrary() {
     try {
       const authToken = sessionStorage.getItem("token");
 
-      const { data } = await axios.get(`${API_URL}/skills/favourites`, {
+      const response = await axios.get(`${API_URL}/skills/favourites`, {
         headers: {
           Authorization: `Bearer ${authToken}`,
         },
       });
-      setSkillsList(data);
+
+      if (response.data.length > 0) {
+        setSkillsList(response.data);
+      } else if (response.status === 404) {
+        setSkillsList([]);
+      }
     } catch (error) {
       console.error("Couldn't get list of skills", error);
     }
@@ -156,13 +159,37 @@ function SkillsLibrary() {
     return <div>Error: {error}</div>;
   }
 
+  let headerText;
+  if (location.pathname === "/skills/favourites") {
+    headerText = "Favourite Techniques";
+  } else if (category) {
+    headerText = "Recommended Techniques";
+  } else if (intensity) {
+    headerText = "Techniques by Intensity Level";
+  } else {
+    headerText = "All Techniques";
+  }
+
+  let backLink;
+  if (location.pathname === "/skills/favourites") {
+    backLink = null;
+  } else if (category) {
+    backLink = "/";
+  } else if (intensity) {
+    backLink = "/";
+  } else {
+    backLink = null;
+  }
+
   return (
     <div className="skills-library">
       <div className="skills-library__header">
-        <Link to={"/"}>
-          <ArrowBackRoundedIcon className="skills-library__back-icon" />
-        </Link>
-        <h1 className="skills-library__header-text">Technique Library</h1>
+        {backLink && (
+          <Link to={"/"}>
+            <ArrowBackRoundedIcon className="skills-library__back-icon" />
+          </Link>
+        )}
+        <h1 className="skills-library__header-text">{headerText}</h1>
       </div>
       <div className="skills-library__list-container">
         {skillsList.length > 0 ? (

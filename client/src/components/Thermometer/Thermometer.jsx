@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Slider as BaseSlider, sliderClasses } from "@mui/base/Slider";
-import { styled, Box } from "@mui/system";
+import { styled } from "@mui/system";
 import "./Thermometer.scss";
 
 const blueGreen = "#008083";

@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./EmergencyPlan.scss";
-import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import TextField from "@mui/material/TextField";
 import ButtonColour from "../../components/ButtonColour/ButtonColour";
 
@@ -98,19 +97,23 @@ function EmergencyPlan() {
     }
   };
 
+  const handleListClick = () => {
+    window.confirm("Leave the page? Any changes will be lost.");
+    navigate("/emergency");
+  };
+
   return (
     <form className="emergency-plan" onSubmit={handleSubmit}>
       <div className="emergency-plan__header">
-        <div className="emergency-plan__header-text">
-          <Link to={"/emergency"}>
-            <ArrowBackRoundedIcon className="emergency-plan__back-icon" />
-          </Link>
-          <h1 className="emergency-plan__title">Your Emergency Plan</h1>
-        </div>
+        <h1 className="emergency-plan__title">Your Emergency Plan</h1>
+        <button
+          className="emergency-plan__list-button"
+          onClick={handleListClick}
+        ></button>
       </div>
       <div className="emergency-plan__input-section">
         <div className="emergency-plan__sub-section">
-          <h2 className="emergency-plan__subheader">Personal Supports</h2>
+          <h2 className="emergency-plan__subheader">Personal Support</h2>
           <div className="emergency-plan__support">
             <div className="emergency-plan__support-item">
               <TextField
@@ -161,7 +164,7 @@ function EmergencyPlan() {
           </div>
         </div>
         <div className="emergency-plan__sub-section">
-          <h2 className="emergency-plan__subheader">Professional Supports</h2>
+          <h2 className="emergency-plan__subheader">Professional Support</h2>
           <div className="emergency-plan__support">
             <div className="emergency-plan__support-item">
               <TextField

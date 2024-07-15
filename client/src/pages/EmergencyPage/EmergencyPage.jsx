@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./EmergencyPage.scss";
 import SkillModal from "../../components/SkillModal/SkillModal";
@@ -11,6 +11,7 @@ import EditNoteRoundedIcon from "@mui/icons-material/EditNoteRounded";
 const API_URL = import.meta.env.VITE_API_URL;
 
 function EmergencyPage() {
+  const navigate = useNavigate();
   const [emergencyPlan, setEmergencyPlan] = useState(null);
   const [isEmergencyModalOpen, setIsEmergencyModalOpen] = useState(false);
 
@@ -45,13 +46,20 @@ function EmergencyPage() {
     fetchEmergencyPlan();
   }, []);
 
+  const handleBackClick = () => {
+    navigate(-1);
+  };
+
   return (
     <div className="emergency-page">
       <div className="emergency-page__header">
         <div className="emergency-page__header-text">
-          <Link to={"/"}>
+          <button
+            className="emergency-page__back-button"
+            onClick={handleBackClick}
+          >
             <ArrowBackRoundedIcon className="emergency-page__back-icon" />
-          </Link>
+          </button>
           <h1 className="emergency-page__title">Emergency Plan</h1>
         </div>
         <button
@@ -102,7 +110,7 @@ function EmergencyPage() {
                 emergencyPlan.support_person_2_phone) && (
                 <div className="emergency-page__sub-section">
                   <h3 className="emergency-page__subheader">
-                    Personal Supports
+                    Personal Support
                   </h3>
                   {(emergencyPlan.support_person_1_name ||
                     emergencyPlan.support_person_1_phone) && (
@@ -168,13 +176,13 @@ function EmergencyPage() {
                   )}
                 </div>
               )}
-              {(emergencyPlan.support_person_1_name ||
-                emergencyPlan.support_person_1_phone ||
-                emergencyPlan.support_person_2_name ||
-                emergencyPlan.support_person_2_phone) && (
+              {(emergencyPlan.professional_support_1_name ||
+                emergencyPlan.professional_support_1_phone ||
+                emergencyPlan.professional_support_2_name ||
+                emergencyPlan.professional_support_2_phone) && (
                 <div className="emergency-page__sub-section">
                   <h3 className="emergency-page__subheader">
-                    Professional Supports
+                    Professional Support
                   </h3>
                   {(emergencyPlan.professional_support_1_name ||
                     emergencyPlan.professional_support_1_phone) && (

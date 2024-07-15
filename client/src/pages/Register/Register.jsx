@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../../hooks/useAuth";
+import { TextField } from "@mui/material";
+import ButtonColour from "../../components/ButtonColour/ButtonColour";
 
 function Register() {
   const [error, setError] = useState(null);
@@ -62,25 +64,36 @@ function Register() {
 
   return (
     <main className="register">
-      <form className="register_form" onSubmit={handleSubmit}>
-        <h1 className="register__title">Sign Up</h1>
-        <label htmlFor="email">Email Address</label>
-        <input type="text" name="email" id="email"></input>
-        <label htmlFor="password">Password</label>
-        <input type="password" name="password" id="password"></input>
-        <label htmlFor="confirm-password">Confirm Password</label>
-        <input
+      <h2 className="register__logo">wiser mind</h2>
+      <form className="register__form" onSubmit={handleSubmit}>
+        <h1 className="register__title">Create an Account</h1>
+        <TextField
+          variant="standard"
+          label="Email Address"
+          className="register__input"
+          type="email"
+          id="email"
+        />
+        <TextField
+          variant="standard"
+          label="Password"
+          className="register__input"
           type="password"
-          name="confirm-password"
+          id="password"
+        />
+        <TextField
+          variant="standard"
+          label="Confirm Password"
+          className="register__input"
+          type="password"
           id="confirm-password"
-        ></input>
-        <button className="register__button">Sign Up</button>
-        {success && <div className="signup__message">Signed up!</div>}
-        {error && <div className="signup__message">{error}</div>}
+        />
+        {error && <p className="register__message">{error}</p>}
+        <ButtonColour extraClass="register__button" buttonText="Register" />
       </form>
-      <p className="register__login-question">
-        Have an account?{" "}
-        <Link className="register__login-link" to="/login">
+      <p className="register__account-question">
+        Already have an account?{" "}
+        <Link className="register__account-link" to="/login">
           Log in
         </Link>
       </p>

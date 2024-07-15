@@ -4,28 +4,28 @@
   display: flex;
   align-items: start;
   justify-content: space-between;
-  border-bottom: 1px solid lightgrey;
+  border-bottom: 0.0625rem solid lightgrey;
   padding: 0.5rem 2rem;
 
   &__text {
   }
 
   &__title {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
     padding-top: 0.5rem;
   }
 
   &__preview {
-    font-size: 14px;
+    font-size: 0.875rem;
     padding: 0.4rem 0;
   }
 
   &__tag {
     white-space: nowrap;
-    border-radius: 20px;
+    border-radius: 1.25rem;
     padding: 0.25rem 0.75rem;
-    font-size: 10px;
+    font-size: 0.625rem;
     color: white;
     background-color: $app-turq-mid;
     text-transform: uppercase;
@@ -41,7 +41,7 @@
   &__favourite-icon {
     color: $almost-black;
     cursor: pointer;
-    font-size: 24px !important;
+    font-size: 1.5rem !important;
     padding-top: 1rem;
 
     &--filled {

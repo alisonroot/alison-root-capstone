@@ -3,11 +3,52 @@
 .register {
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(
-    to bottom right,
-    $app-turq-light,
-    $app-turq-dark
-  );
+  justify-content: start;
   height: 100vh;
-  z-index: 100000;
+  padding: 2rem;
+  z-index: 10000;
+  align-items: center;
+  background-color: $app-turq-light;
+
+  &__logo {
+    font-weight: 400;
+    font-size: 2.25rem;
+    margin-top: 4rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    min-width: 17.8125rem;
+    margin-top: 8rem;
+  }
+
+  &__title {
+    font-weight: 600;
+  }
+
+  &__button {
+    margin-top: 1rem;
+    background-color: $app-turq-dark;
+  }
+
+  &__account-question {
+    position: absolute;
+    bottom: 8rem;
+  }
+
+  &__account-link {
+    &:link,
+    &:visited,
+    &:active {
+      color: #016465;
+      text-decoration: none;
+    }
+
+    &:hover {
+      color: #fd5901;
+    }
+  }
 }

@@ -7,21 +7,15 @@
   width: 100vw;
 
   &__header {
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 0.0625rem solid lightgrey;
     display: flex;
-    padding: 2rem 2rem 2rem 1rem;
+    padding: 2rem;
     justify-content: space-between;
   }
 
-  &__back-icon {
-    color: black;
-
-    &:link,
-    &:active,
-    &:hover,
-    &:visited {
-      color: black;
-    }
+  &__back-button {
+    background-color: unset;
+    border: none;
   }
 
   &__header-text {
@@ -32,13 +26,13 @@
 
   &__title {
     font-weight: 500;
-    font-size: 28px;
+    font-size: 1.75rem;
   }
 
   &__emergency-button {
     border-radius: 50%;
     border: none;
-    box-shadow: rgba(180, 170, 151, 0.2) 0px 2px 8px 0px;
+    box-shadow: rgba(180, 170, 151, 0.2) 0rem 0.125rem 0.5rem 0rem;
     background-image: linear-gradient(to top left, #fd5901, #faab36);
   }
 
@@ -57,17 +51,17 @@
   }
 
   &__section-header {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 
   &__subheader {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 500;
   }
 
   &__list {
     list-style-type: none;
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 
   &__list-item {
@@ -102,7 +96,7 @@
     align-items: center;
     gap: 0.25rem;
     color: black;
-    font-size: 14px;
+    font-size: 0.875rem;
 
     &:link,
     &:active,
@@ -115,7 +109,7 @@
   }
 
   &__edit-icon {
-    font-size: 30px !important;
+    font-size: 1.875rem !important;
     color: black;
 
     &:link,
@@ -131,7 +125,7 @@
   }
 
   &__subheader {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 500;
   }
 

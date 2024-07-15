@@ -22,17 +22,16 @@
     margin: 2.5rem;
     background-color: white;
     z-index: 1000;
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 0.3125rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0rem 0.3125rem 0.9375rem;
+    border: 0.0625rem solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0.25rem 1.875rem rgba(0, 0, 0, 0.1);
   }
 
   &__overlay {
     position: fixed;
     background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(0.3125rem);
     height: 100vh;
     width: 100vw;
     top: 0;
@@ -60,7 +59,7 @@
   &__question-text {
     font-weight: 500;
     margin: 1rem;
-    font-size: 22px;
+    font-size: 1.375rem;
     text-align: center;
   }
 
@@ -73,8 +72,8 @@
   }
 
   &__button {
-    width: 135px;
-    height: 135px;
+    width: 8.4375rem;
+    height: 8.4375rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -82,7 +81,7 @@
   }
 
   &__button-icon {
-    font-size: 60px !important;
+    font-size: 3.75rem !important;
     padding: 0.5rem 0;
   }
 
@@ -94,8 +93,8 @@
 
   &__skip-link {
     font-family: "Open Sans", sans-serif;
-    font-size: 14px;
-    line-height: 14px;
+    font-size: 0.875rem;
+    line-height: 0.875rem;
     padding: 1rem;
     font-weight: 400;
     text-align: center;
