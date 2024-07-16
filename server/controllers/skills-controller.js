@@ -87,11 +87,10 @@ const getFavouritedSkills = async (req, res) => {
       .whereNotNull("favourited_skills.id");
 
     if (skills.length === 0) {
-      return res.status(404).json({ message: "No skills found" });
+      return res.status(200).json({ message: "No skills favourited" });
     }
     res.json(skills);
   } catch (error) {
-    console.error("Error retrieving favourite skills:", error);
     res.status(500).json({ message: "Unable to retrieve favourite skills" });
   }
 };

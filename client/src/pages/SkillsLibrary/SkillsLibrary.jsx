@@ -81,7 +81,8 @@ function SkillsLibrary() {
 
       if (response.data.length > 0) {
         setSkillsList(response.data);
-      } else if (response.status === 404) {
+        console.log(skillsList);
+      } else {
         setSkillsList([]);
       }
     } catch (error) {
@@ -180,6 +181,8 @@ function SkillsLibrary() {
   } else {
     backLink = null;
   }
+
+  console.log(skillsList);
 
   return (
     <div className="skills-library">
