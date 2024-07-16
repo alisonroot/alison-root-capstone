@@ -1,0 +1,102 @@
+{
+  "behaviourSolutionAnalysis": [
+    {
+      "id": "vulnerabilities",
+      "title": "Vulnerabilities",
+      "helperText": "Describe any vulnerabilities you were experiencing at the time (e.g., lack of sleep, stress).",
+      "question": "Describe the vulnerabilities."
+    },
+    {
+      "id": "prompting_event",
+      "title": "Prompting Event",
+      "helperText": "Describe the event that prompted the behavior.",
+      "question": "What triggered the behavior?"
+    },
+    {
+      "id": "surface_emotion",
+      "title": "Surface Emotion",
+      "helperText": "Identify the immediate emotion you felt.",
+      "question": "What emotion did you feel on the surface?"
+    },
+    {
+      "id": "underlying_emotions",
+      "title": "Underlying Emotions",
+      "helperText": "Identify any deeper emotions underlying the surface emotion.",
+      "question": "What underlying emotions did you feel?"
+    },
+    {
+      "id": "self_talk",
+      "title": "Self-Talk",
+      "helperText": "Describe any self-talk you engaged in.",
+      "question": "What were you saying to yourself?"
+    },
+    {
+      "id": "physical_sensations",
+      "title": "Physical Sensations",
+      "helperText": "Describe any physical sensations you experienced.",
+      "question": "What did you feel in your body?"
+    },
+    {
+      "id": "action_urge",
+      "title": "Action Urge",
+      "helperText": "Describe any urges to act that you felt.",
+      "question": "What was your urge to act?"
+    },
+    {
+      "id": "behaviour",
+      "title": "Behaviour",
+      "helperText": "Describe the behavior you engaged in.",
+      "question": "What behavior did you engage in?"
+    },
+    {
+      "id": "consequences",
+      "title": "Consequences",
+      "helperText": "Describe the consequences of the behavior.",
+      "question": "What were the consequences of the behavior?"
+    },
+    {
+      "id": "alternative_solutions",
+      "title": "Alternative Solutions",
+      "helperText": "Think of alternative solutions for the future.",
+      "question": "What alternative solutions can you think of for the future?"
+    }
+  ],
+  "feelingsModel": [
+    {
+      "id": "event",
+      "title": "Event",
+      "helperText": "Describe the event (who/what/when/where).",
+      "question": "Describe the event."
+    },
+    {
+      "id": "interpretation",
+      "title": "Interpretation",
+      "helperText": "Describe your interpretation (judgement, evaluation, self-talk, belief).",
+      "question": "What was your interpretation?"
+    },
+    {
+      "id": "emotion",
+      "title": "Emotion",
+      "helperText": "Describe the emotion (physical sensations, body language, name emotion, identify underlying emotions if possible).",
+      "question": "What emotion did you feel?"
+    },
+    {
+      "id": "action_urge",
+      "title": "Action Urge",
+      "helperText": "Describe your action urge (action, inaction, communication).",
+      "question": "What was your action urge?"
+    },
+    {
+      "id": "behaviour",
+      "title": "Behaviour",
+      "helperText": "Describe your behavior (what action or inaction you made).",
+      "question": "What was your behavior?"
+    },
+    {
+      "id": "consequences",
+      "title": "Consequences",
+      "helperText": "Describe the consequences (include other emotions, thoughts, actions, inactions, and their effect on relationships and situations).",
+      "question": "What were the consequences?"
+    }
+  ]
+}

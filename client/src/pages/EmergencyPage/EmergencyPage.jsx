@@ -31,7 +31,7 @@ function EmergencyPage() {
     try {
       const authToken = sessionStorage.getItem("token");
 
-      const response = await axios.get(`${API_URL}/forms`, {
+      const response = await axios.get(`${API_URL}/forms/emergency`, {
         headers: {
           Authorization: `Bearer ${authToken}`,
         },

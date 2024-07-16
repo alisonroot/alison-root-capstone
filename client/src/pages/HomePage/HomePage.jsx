@@ -1,7 +1,7 @@
 import "./HomePage.scss";
 import Thermometer from "../../components/Thermometer/Thermometer";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import FilterQuestion from "../../components/FilterQuestionModal/FilterQuestionModal";
 import intensityLevels from "../../data/intensity-levels.json";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
@@ -154,6 +154,9 @@ function HomePage() {
           buttonText="See suggested techniques"
           extraClass="home-page__filter-button"
         />
+        <Link to={"/exercises/saved"}>Saved Exercises</Link>
+        <Link to={"/exercises/behaviour"}>Behaviour Exercise</Link>
+        <Link to={"/exercises/feelings"}>Feelings Exercise</Link>
       </div>
       <FilterQuestion
         isOpen={isQuestionModalOpen}

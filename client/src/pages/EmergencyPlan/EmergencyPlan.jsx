@@ -41,7 +41,7 @@ function EmergencyPlan() {
     try {
       const authToken = sessionStorage.getItem("token");
 
-      const response = await axios.get(`${API_URL}/forms`, {
+      const response = await axios.get(`${API_URL}/forms/emergency`, {
         headers: {
           Authorization: `Bearer ${authToken}`,
         },
@@ -73,7 +73,7 @@ function EmergencyPlan() {
             "Save your plan as is? Empty fields may cause information you previously saved to be deleted."
           )
         ) {
-          await axios.put(`${API_URL}/forms/${formId}`, formData, {
+          await axios.put(`${API_URL}/forms/emergency/${formId}`, formData, {
             headers: {
               Authorization: `Bearer ${authToken}`,
             },
@@ -83,7 +83,7 @@ function EmergencyPlan() {
           return;
         }
       } else {
-        await axios.post(`${API_URL}/forms`, formData, {
+        await axios.post(`${API_URL}/forms/emergency`, formData, {
           headers: {
             Authorization: `Bearer ${authToken}`,
           },

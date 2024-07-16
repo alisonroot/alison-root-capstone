@@ -9,6 +9,9 @@ import SkillsLibrary from "./pages/SkillsLibrary/SkillsLibrary";
 import SkillDetails from "./pages/SkillDetails/SkillDetails";
 import EmergencyPage from "./pages/EmergencyPage/EmergencyPage";
 import EmergencyPlan from "./pages/EmergencyPlan/EmergencyPlan";
+import SavedExerciseList from "./pages/SavedExerciseList/SavedExerciseList";
+import SavedExerciseDetails from "./pages/SavedExerciseDetails/SavedExerciseDetails";
+import ExercisePage from "./pages/ExercisePage/ExercisePage";
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
 import { AuthProvider } from "./hooks/useAuth";
 
@@ -81,6 +84,38 @@ function App() {
             element={
               <ProtectedRoute>
                 <EmergencyPlan />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/exercises"
+            element={
+              <ProtectedRoute>
+                <></>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/exercises/saved"
+            element={
+              <ProtectedRoute>
+                <SavedExerciseList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/exercises/saved/:formType/:formId"
+            element={
+              <ProtectedRoute>
+                <SavedExerciseDetails />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/exercises/:formType"
+            element={
+              <ProtectedRoute>
+                <ExercisePage />
               </ProtectedRoute>
             }
           />
