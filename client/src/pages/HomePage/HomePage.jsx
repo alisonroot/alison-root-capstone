@@ -1,6 +1,7 @@
 import "./HomePage.scss";
 import Thermometer from "../../components/Thermometer/Thermometer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import FilterQuestion from "../../components/FilterQuestionModal/FilterQuestionModal";
 import intensityLevels from "../../data/intensity-levels.json";
@@ -11,10 +12,15 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import SosRoundedIcon from "@mui/icons-material/SosRounded";
 import ButtonColour from "../../components/ButtonColour/ButtonColour";
 import SkillModal from "../../components/SkillModal/SkillModal";
+import MostUsedSkills from "../../components/MostUsedSkills/MostUsedSkills";
+import MostRecentlyOpenedSkills from "../../components/MostRecentlyOpenedSkills/MostRecentlyOpenedSkills";
+
+const API_URL = import.meta.env.VITE_API_URL;
 
 function HomePage() {
   const navigate = useNavigate();
-
+  const [mostOpenedSkills, setMostOpenedSkills] = useState([]);
+  const [recentlyOpenedSkills, setRecentlyOpenedSkills] = useState([]);
   const [intensity, setIntensity] = useState(35);
   const [isQuestionModalOpen, setIsQuestionModalOpen] = useState(false);
   const [currentQuestionId, setCurrentQuestionId] = useState(null);
@@ -22,6 +28,38 @@ function HomePage() {
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
 
   const { logout } = useAuth();
+
+  const fetchSkillsByOpenCount = async () => {
+    const authToken = sessionStorage.getItem("token");
+
+    try {
+      const mostOpenedResponse = await axios.get(
+        `${API_URL}/skills/opencount?sortBy=most`,
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      );
+      const recentlyOpenedResponse = await axios.get(
+        `${API_URL}/skills/opencount?sortBy=recent`,
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      );
+
+      setMostOpenedSkills(mostOpenedResponse.data.slice(0, 5));
+      setRecentlyOpenedSkills(recentlyOpenedResponse.data.slice(0, 5));
+    } catch (error) {
+      console.error("Error fetching skills:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchSkillsByOpenCount();
+  }, []);
 
   const handleChange = (newIntensity) => {
     setIntensity(newIntensity);
@@ -158,6 +196,8 @@ function HomePage() {
         <Link to={"/exercises/behaviour"}>Behaviour Exercise</Link>
         <Link to={"/exercises/feelings"}>Feelings Exercise</Link>
       </div>
+      <MostUsedSkills skills={mostOpenedSkills} />
+      <MostRecentlyOpenedSkills skills={recentlyOpenedSkills} />
       <FilterQuestion
         isOpen={isQuestionModalOpen}
         closeModal={closeQuestionModal}

@@ -28,6 +28,25 @@ function SkillDetails() {
     }
   };
 
+  const incrementOpenedCount = async (id) => {
+    try {
+      const authToken = sessionStorage.getItem("token");
+
+      const response = await axios.post(
+        `${API_URL}/skills/${id}/opencount`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      );
+      console.log(response.data.message);
+    } catch (error) {
+      console.error("Error incrementing opened count:", error);
+    }
+  };
+
   const handleFavouriteSkill = async (id) => {
     try {
       const authToken = sessionStorage.getItem("token");
@@ -68,6 +87,7 @@ function SkillDetails() {
 
   useEffect(() => {
     fetchSkillsById(id);
+    incrementOpenedCount(id);
   }, [id]);
 
   const toggleFavourite = async (event) => {

@@ -149,6 +149,64 @@ const unfavouriteSkill = async (req, res) => {
   }
 };
 
+const openedSkillCounter = async (req, res) => {
+  const { id: skillId } = req.params;
+  const userId = req.user.id;
+
+  try {
+    await knex.raw(
+      `
+      INSERT INTO user_open_count (user_id, skill_id, opened_count, created_at, edited_at)
+      VALUES (?, ?, 1, NOW(), NOW())
+      ON DUPLICATE KEY UPDATE
+      opened_count = opened_count + 1,
+      edited_at = NOW();
+      `,
+      [userId, skillId]
+    );
+
+    res.status(200).json({ message: "Successfully incremented open count" });
+  } catch (error) {
+    console.error("Error incrementing opened count: ", error);
+    res.status(500).json({ message: "Error incrementing opened count" });
+  }
+};
+
+const getOpenedSkills = async (req, res) => {
+  const userId = req.user.id;
+  const { sortBy } = req.query;
+
+  try {
+    const skills = await knex("user_open_count")
+      .join("skills", "user_open_count.skill_id", "skills.id")
+      .select(
+        "skills.id",
+        "skills.name",
+        "skills.tag",
+        "skills.intensity",
+        "skills.preview",
+        "user_open_count.opened_count",
+        "user_open_count.edited_at"
+      )
+      .where("user_open_count.user_id", userId)
+      .orderBy(
+        sortBy === "recent"
+          ? "user_open_count.edited_at"
+          : "user_open_count.opened_count",
+        "desc"
+      );
+
+    if (skills.length === 0) {
+      return res.status(200).json({ message: "No skills opened yet" });
+    }
+
+    res.status(200).json(skills);
+  } catch (error) {
+    console.error("Error fetching skills: ", error);
+    res.status(500).json({ message: "Error fetching skills" });
+  }
+};
+
 export {
   getAllSkills,
   getSkillsByCategory,
@@ -157,4 +215,6 @@ export {
   getSkillById,
   favouriteSkill,
   unfavouriteSkill,
+  openedSkillCounter,
+  getOpenedSkills,
 };
