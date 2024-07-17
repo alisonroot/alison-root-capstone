@@ -13,61 +13,103 @@ function SkillsLibrary() {
   const location = useLocation();
 
   const [skillsList, setSkillsList] = useState([]);
+  const [sortBy, setSortBy] = useState("category");
+  const [filterBy, setFilterBy] = useState(null);
+  const [filterValue, setFilterValue] = useState(null);
   const [error, setError] = useState(null);
 
-  const fetchAllSkills = async () => {
+  // const fetchAllSkills = async () => {
+  //   try {
+  //     const authToken = sessionStorage.getItem("token");
+
+  //     const { data } = await axios.get(`${API_URL}/skills`, {
+  //       headers: {
+  //         Authorization: `Bearer ${authToken}`,
+  //       },
+  //     });
+  //     setSkillsList(data);
+  //   } catch (error) {
+  //     console.error("Error fetching all skills", error);
+  //     setError("Failed to fetch skills. Please try again later.");
+  //   }
+  // };
+
+  const fetchSkills = async () => {
     try {
       const authToken = sessionStorage.getItem("token");
 
-      const { data } = await axios.get(`${API_URL}/skills`, {
+      let url = `${API_URL}/skills?sortBy=${sortBy}`;
+      if (filterBy && filterValue) {
+        url += `&filterBy=${filterBy}&filterValue=${filterValue}`;
+      }
+
+      const { data } = await axios.get(url, {
         headers: {
           Authorization: `Bearer ${authToken}`,
         },
       });
       setSkillsList(data);
     } catch (error) {
-      console.error("Error fetching all skills", error);
+      console.error("Error fetching skills", error);
       setError("Failed to fetch skills. Please try again later.");
     }
   };
 
-  const fetchSkillsByCategory = async (category) => {
-    try {
-      const authToken = sessionStorage.getItem("token");
+  const handleSortChange = (event) => {
+    setSortBy(event.target.value);
+  };
 
-      const { data } = await axios.get(
-        `${API_URL}/skills/category/${category}`,
-        {
-          headers: {
-            Authorization: `Bearer ${authToken}`,
-          },
-        }
-      );
-      setSkillsList(data);
-    } catch (error) {
-      console.error("Couldn't get list of skills", error);
-      setError("Failed to fetch skills. Please try again later.");
+  const handleFilterChange = (event) => {
+    const { name, value } = event.target;
+    if (name === "filterBy") {
+      setFilterBy(value);
+      setFilterValue(null);
+    } else {
+      setFilterValue(value);
     }
   };
 
-  const fetchSkillsByIntensity = async (intensity) => {
-    try {
-      const authToken = sessionStorage.getItem("token");
+  useEffect(() => {
+    fetchSkills();
+  }, [sortBy, filterBy, filterValue]);
 
-      const { data } = await axios.get(
-        `${API_URL}/skills/intensity/${intensity}`,
-        {
-          headers: {
-            Authorization: `Bearer ${authToken}`,
-          },
-        }
-      );
-      setSkillsList(data);
-    } catch (error) {
-      console.error("Couldn't get list of skills", error);
-      setError("Failed to fetch skills. Please try again later.");
-    }
-  };
+  // const fetchSkillsByCategory = async (category) => {
+  //   try {
+  //     const authToken = sessionStorage.getItem("token");
+
+  //     const { data } = await axios.get(
+  //       `${API_URL}/skills/category/${category}`,
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${authToken}`,
+  //         },
+  //       }
+  //     );
+  //     setSkillsList(data);
+  //   } catch (error) {
+  //     console.error("Couldn't get list of skills", error);
+  //     setError("Failed to fetch skills. Please try again later.");
+  //   }
+  // };
+
+  // const fetchSkillsByIntensity = async (intensity) => {
+  //   try {
+  //     const authToken = sessionStorage.getItem("token");
+
+  //     const { data } = await axios.get(
+  //       `${API_URL}/skills/intensity/${intensity}`,
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${authToken}`,
+  //         },
+  //       }
+  //     );
+  //     setSkillsList(data);
+  //   } catch (error) {
+  //     console.error("Couldn't get list of skills", error);
+  //     setError("Failed to fetch skills. Please try again later.");
+  //   }
+  // };
 
   const fetchFavouriteSkills = async () => {
     try {
@@ -104,15 +146,17 @@ function SkillsLibrary() {
         }
       );
 
-      if (location.pathname === "/skills/favourites") {
-        fetchFavouriteSkills();
-      } else if (category) {
-        fetchSkillsByCategory(category);
-      } else if (intensity) {
-        fetchSkillsByIntensity(intensity);
-      } else {
-        fetchAllSkills();
-      }
+      // if (location.pathname === "/skills/favourites") {
+      //   fetchFavouriteSkills();
+      // } else if (category) {
+      //   fetchSkillsByCategory(category);
+      // } else if (intensity) {
+      //   fetchSkillsByIntensity(intensity);
+      // } else {
+      //   fetchAllSkills();
+      // }
+
+      fetchSkills();
     } catch (error) {
       console.error("Failed to favourite skill", error);
       setError("Failed to favourite skill");
@@ -129,15 +173,16 @@ function SkillsLibrary() {
         },
       });
 
-      if (location.pathname === "/skills/favourites") {
-        fetchFavouriteSkills();
-      } else if (category) {
-        fetchSkillsByCategory(category);
-      } else if (intensity) {
-        fetchSkillsByIntensity(intensity);
-      } else {
-        fetchAllSkills();
-      }
+      // if (location.pathname === "/skills/favourites") {
+      //   fetchFavouriteSkills();
+      // } else if (category) {
+      //   fetchSkillsByCategory(category);
+      // } else if (intensity) {
+      //   fetchSkillsByIntensity(intensity);
+      // } else {
+      //   fetchAllSkills();
+      // }
+      fetchSkills();
     } catch (error) {
       console.error("Error unfavouriting skill", error);
       setError("Failed to unfavourite skill. Please try again later.");
@@ -145,16 +190,8 @@ function SkillsLibrary() {
   };
 
   useEffect(() => {
-    if (location.pathname === "/skills/favourites") {
-      fetchFavouriteSkills();
-    } else if (category) {
-      fetchSkillsByCategory(category);
-    } else if (intensity) {
-      fetchSkillsByIntensity(intensity);
-    } else {
-      fetchAllSkills();
-    }
-  }, [category, intensity, location.pathname]);
+    fetchSkills();
+  }, [sortBy, filterBy, filterValue]);
 
   if (error) {
     return <div>Error: {error}</div>;

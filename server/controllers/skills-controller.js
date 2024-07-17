@@ -2,9 +2,82 @@ import initKnex from "knex";
 import configuration from "../knexfile.js";
 const knex = initKnex(configuration);
 
+// const getAllSkills = async (req, res) => {
+//   try {
+//     const skills = await knex("skills")
+//       .select("skills.*", "favourited_skills.id as favourite_id")
+//       .leftJoin("favourited_skills", function () {
+//         this.on("skills.id", "=", "favourited_skills.skill_id").andOn(
+//           "favourited_skills.user_id",
+//           "=",
+//           req.user.id
+//         );
+//       });
+
+//     if (skills.length === 0) {
+//       return res.status(404).json({ message: "No skills found" });
+//     }
+//     res.json(skills);
+//   } catch (error) {
+//     res.status(500).json({ message: "Unable to retrieve skills" });
+//   }
+// };
+
+// const getSkillsByCategory = async (req, res) => {
+//   const category = req.params.category;
+//   try {
+//     const skills = await knex("skills")
+//       .select("skills.*", "favourited_skills.id as favourite_id")
+//       .leftJoin("favourited_skills", function () {
+//         this.on("skills.id", "=", "favourited_skills.skill_id").andOn(
+//           "favourited_skills.user_id",
+//           "=",
+//           req.user.id
+//         );
+//       })
+//       .where({ category });
+
+//     if (skills.length === 0) {
+//       return res
+//         .status(404)
+//         .json({ message: "No skills found for this category" });
+//     }
+//     res.json(skills);
+//   } catch (error) {
+//     res.status(500).json({ message: "Unable to retrieve skills" });
+//   }
+// };
+
+// const getSkillsByIntensity = async (req, res) => {
+//   const intensity = req.params.intensity;
+//   try {
+//     const skills = await knex("skills")
+//       .select("skills.*", "favourited_skills.id as favourite_id")
+//       .leftJoin("favourited_skills", function () {
+//         this.on("skills.id", "=", "favourited_skills.skill_id").andOn(
+//           "favourited_skills.user_id",
+//           "=",
+//           req.user.id
+//         );
+//       })
+//       .where({ intensity });
+
+//     if (skills.length === 0) {
+//       return res
+//         .status(404)
+//         .json({ message: "No skills found for this intensity level" });
+//     }
+//     res.json(skills);
+//   } catch (error) {
+//     res.status(500).json({ message: "Unable to retrieve skills" });
+//   }
+// };
+
 const getAllSkills = async (req, res) => {
+  const { category, intensity, sortBy } = req.query;
+
   try {
-    const skills = await knex("skills")
+    const query = knex("skills")
       .select("skills.*", "favourited_skills.id as favourite_id")
       .leftJoin("favourited_skills", function () {
         this.on("skills.id", "=", "favourited_skills.skill_id").andOn(
@@ -14,59 +87,32 @@ const getAllSkills = async (req, res) => {
         );
       });
 
+    if (category) {
+      query.where({ category });
+    }
+
+    if (intensity) {
+      query.where({ intensity });
+    }
+
+    if (sortBy === "alphabetical") {
+      query.orderBy("skills.name", "asc");
+    } else if (sortBy === "intensity") {
+      query.orderByRaw(
+        `FIELD(intensity, 'mindfulness', 'low', 'medium', 'high', 'crisis')`
+      );
+    } else {
+      query.orderByRaw(
+        `FIELD(category, 'Break', 'Incorporate', 'Breathing', 'Grounding', 'Can't Change', 'Can Change', 'Doesn't Fit Facts', 'Fits Facts', 'Behaviour', 'Emotions')`
+      );
+    }
+
+    const skills = await query;
+
     if (skills.length === 0) {
       return res.status(404).json({ message: "No skills found" });
     }
-    res.json(skills);
-  } catch (error) {
-    res.status(500).json({ message: "Unable to retrieve skills" });
-  }
-};
 
-const getSkillsByCategory = async (req, res) => {
-  const category = req.params.category;
-  try {
-    const skills = await knex("skills")
-      .select("skills.*", "favourited_skills.id as favourite_id")
-      .leftJoin("favourited_skills", function () {
-        this.on("skills.id", "=", "favourited_skills.skill_id").andOn(
-          "favourited_skills.user_id",
-          "=",
-          req.user.id
-        );
-      })
-      .where({ category });
-
-    if (skills.length === 0) {
-      return res
-        .status(404)
-        .json({ message: "No skills found for this category" });
-    }
-    res.json(skills);
-  } catch (error) {
-    res.status(500).json({ message: "Unable to retrieve skills" });
-  }
-};
-
-const getSkillsByIntensity = async (req, res) => {
-  const intensity = req.params.intensity;
-  try {
-    const skills = await knex("skills")
-      .select("skills.*", "favourited_skills.id as favourite_id")
-      .leftJoin("favourited_skills", function () {
-        this.on("skills.id", "=", "favourited_skills.skill_id").andOn(
-          "favourited_skills.user_id",
-          "=",
-          req.user.id
-        );
-      })
-      .where({ intensity });
-
-    if (skills.length === 0) {
-      return res
-        .status(404)
-        .json({ message: "No skills found for this intensity level" });
-    }
     res.json(skills);
   } catch (error) {
     res.status(500).json({ message: "Unable to retrieve skills" });
@@ -209,8 +255,6 @@ const getOpenedSkills = async (req, res) => {
 
 export {
   getAllSkills,
-  getSkillsByCategory,
-  getSkillsByIntensity,
   getFavouritedSkills,
   getSkillById,
   favouriteSkill,

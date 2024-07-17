@@ -1,8 +1,8 @@
 import express from "express";
 import {
   getAllSkills,
-  getSkillsByCategory,
-  getSkillsByIntensity,
+  // getSkillsByCategory,
+  // getSkillsByIntensity,
   getFavouritedSkills,
   getSkillById,
   favouriteSkill,
@@ -14,10 +14,8 @@ import authorize from "../middleware/auth-middleware.js";
 
 const router = express.Router();
 
-// routes for getting skills
+// get all skills (includes queries for sorting)
 router.get("/", authorize, getAllSkills);
-router.get("/category/:category", authorize, getSkillsByCategory);
-router.get("/intensity/:intensity", authorize, getSkillsByIntensity);
 router.get("/favourites", authorize, getFavouritedSkills);
 
 // routes for open counts

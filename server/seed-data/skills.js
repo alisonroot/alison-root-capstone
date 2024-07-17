@@ -135,8 +135,8 @@ const skillsData = [
     explanation: "Accepting reality reduces suffering caused by resistance.",
     preview: "Reduce suffering by accepting reality with radical acceptance.",
     is_acronym: false,
-    category: "behaviour",
-    tag: "Behaviour",
+    category: "nocontrol",
+    tag: "Can't Change",
     intensity: "medium",
   },
   {
