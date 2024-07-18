@@ -57,7 +57,6 @@
     border-radius: 50%;
     border: none;
     background-color: unset;
-    // box-shadow: rgba(180, 170, 151, 0.2) 0rem 0.125rem 0.5rem 0rem;
   }
 
   &__emergency-button {
@@ -66,22 +65,8 @@
 
   &__button-icon {
     color: $app-turq-dark;
-    // color: #f78104;
     font-size: 40px !important;
     padding: 0.8rem;
-  }
-
-  &__main {
-    // overflow-y: scroll;
-  }
-
-  &__info-button {
-    // background-color: $app-turq-mid;
-    // background-image: linear-gradient(
-    //   to bottom right,
-    //   $app-turq-light,
-    //   $app-turq-dark
-    // );
   }
 
   &__title {

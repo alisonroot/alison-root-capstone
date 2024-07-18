@@ -39,10 +39,8 @@
       flex-direction: column;
       justify-content: start;
       gap: 0.75rem;
-      //   align-items: center;
       height: 9rem;
       background-color: #249ea0;
-      // background-color: #03749c;
       border-radius: 20px;
       padding: 1.5rem;
       padding-top: 1.5rem;
@@ -81,7 +79,6 @@
 
   &__item {
     border: 2px solid lightgrey;
-    // box-shadow: rgba(180, 170, 151, 0.2) 0rem 0.125rem 0.5rem 0rem;
     border-radius: 5px;
     padding: 0.5rem 1rem;
     margin: 1rem 0;

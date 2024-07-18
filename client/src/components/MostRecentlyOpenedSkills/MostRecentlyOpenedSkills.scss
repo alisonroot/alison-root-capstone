@@ -2,7 +2,6 @@
 
 .recent-skills {
   padding: 2rem 0 2rem 2rem;
-  // margin-bottom: 2rem;
 
   &__title {
     font-weight: 600;
@@ -18,11 +17,8 @@
     gap: 0.5rem;
     padding: 1rem;
     overflow-x: scroll;
-    // scroll-snap-type: x mandatory; /* Snap to each card */
-    padding-bottom: 20px; /* Space for the scrollbar */
-    margin-bottom: -20px; /* Adjust for scrollbar space */
-
-    /* Hide the scrollbar */
+    padding-bottom: 20px;
+    margin-bottom: -20px;
     scrollbar-width: none;
     -ms-overflow-style: none;
     &::-webkit-scrollbar {

@@ -55,8 +55,6 @@ function SavedExerciseDetails() {
     return <p>Invalid formType</p>;
   }
 
-  // console.log(exercise);
-
   const { data, exerciseType, created_at } = exercise;
 
   const questions = exerciseQuestions[questionKey] || [];

@@ -8,8 +8,6 @@ import intensityLevels from "../../data/intensity-levels.json";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import Drawer from "@mui/material/Drawer";
 import { useAuth } from "../../hooks/useAuth";
-import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import SosRoundedIcon from "@mui/icons-material/SosRounded";
 import ButtonColour from "../../components/ButtonColour/ButtonColour";
 import SkillModal from "../../components/SkillModal/SkillModal";
 import MostUsedSkills from "../../components/MostUsedSkills/MostUsedSkills";
@@ -27,7 +25,6 @@ function HomePage() {
   const [currentQuestionId, setCurrentQuestionId] = useState(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
-  const [bottomDrawerOpen, setBottomDrawerOpen] = useState(false);
 
   const { logout } = useAuth();
 
@@ -115,10 +112,6 @@ function HomePage() {
 
   const closeInfoModal = () => {
     setIsInfoModalOpen(false);
-  };
-
-  const toggleBottomDrawer = () => {
-    setBottomDrawerOpen((prev) => !prev);
   };
 
   return (
@@ -209,34 +202,7 @@ function HomePage() {
         </div>
         <MostRecentlyOpenedSkills skills={recentlyOpenedSkills} />
         <MostUsedSkills skills={mostOpenedSkills} />
-        {/* link to favourites */}
       </div>
-      {/* <SwipeableDrawer
-        // container={container}
-        anchor="bottom"
-        open={open}
-        onClose={toggleDrawer(false)}
-        onOpen={toggleDrawer(true)}
-        // swipeAreaWidth={drawerBleeding}
-        disableSwipeToOpen={false}
-        ModalProps={{
-          keepMounted: true,
-        }}
-      >
-        <div className="bottom-drawer__puller"></div>
-        <div className="bottom-drawer__visible-part"></div>
-      </SwipeableDrawer> */}
-      {/* <div
-        className={`bottom-drawer ${
-          bottomDrawerOpen ? "bottom-drawer--open" : ""
-        }`}
-        onClick={toggleBottomDrawer}
-      >
-        <div className="bottom-drawer__puller"></div>
-        <div className="bottom-drawer__content">
-          <h2>51 results</h2>
-        </div>
-      </div> */}
       <FilterQuestion
         isOpen={isQuestionModalOpen}
         closeModal={closeQuestionModal}

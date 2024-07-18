@@ -91,40 +91,6 @@ const getAllExercises = async (req, res) => {
   }
 };
 
-// const getExerciseById = async (req, res) => {
-//   const { formType, formId } = req.params;
-
-//   try {
-//     let table;
-//     switch (formType) {
-//       case "behaviour":
-//         table = "behaviour_solution_analysis";
-//         break;
-//       case "feelings":
-//         table = "feelings_model";
-//         break;
-//       default:
-//         return res.status(400).json({ message: "Invalid form type" });
-//     }
-
-//     const exercise = await knex(table).where({ id: formId }).first();
-
-//     if (!exercise) {
-//       return res.status(404).json({ message: "Exercise not found" });
-//     }
-
-//     const exerciseType =
-//       formType === "behaviour"
-//         ? "Behaviour and Solution Analysis"
-//         : "Feelings Model";
-
-//     res.status(200).json({ ...exercise, exerciseType, formType });
-//   } catch (error) {
-//     console.error("Error fetching exercise: ", error);
-//     res.status(500).json({ message: "Unable to fetch exercise" });
-//   }
-// };
-
 const getExerciseById = async (req, res) => {
   const { formType, formId } = req.params;
 
@@ -172,20 +138,17 @@ const getExerciseById = async (req, res) => {
         ? "Behaviour and Solution Analysis"
         : "Feelings Model";
 
-    // Extract only the necessary fields (questions)
     const filteredExercise = questions.reduce((acc, question) => {
       acc[question] = exercise[question];
       return acc;
     }, {});
 
-    res
-      .status(200)
-      .json({
-        data: filteredExercise,
-        exerciseType,
-        formType,
-        created_at: exercise.created_at,
-      });
+    res.status(200).json({
+      data: filteredExercise,
+      exerciseType,
+      formType,
+      created_at: exercise.created_at,
+    });
   } catch (error) {
     console.error("Error fetching exercise: ", error);
     res.status(500).json({ message: "Unable to fetch exercise" });
