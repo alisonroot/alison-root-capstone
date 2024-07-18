@@ -3,7 +3,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="./client/public/logo-black.png" alt="Logo" width="80" height="80">
+    <img src="./client/public/icon-blue.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Wiser Mind</h3>
