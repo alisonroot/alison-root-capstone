@@ -100,7 +100,7 @@ const StyledSlider = styled(BaseSlider)(
 
 const MarksContainer = styled("div")`
   position: absolute;
-  margin-top: 10px;
+  margin-top: 15px;
   height: 90%;
   width: 40px;
   display: flex;
