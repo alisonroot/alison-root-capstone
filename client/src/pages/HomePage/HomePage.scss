@@ -6,6 +6,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: calc(100vh - 4.375rem);
+  overflow-y: scroll;
 
   &__header {
     padding: 2rem;
@@ -24,13 +25,25 @@
     color: $almost-black;
   }
 
+  &__drawer {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    align-items: start;
+    gap: 1rem;
+  }
+
+  &__drawer-link {
+    font-size: 16px;
+  }
+
   &__logout-button {
-    margin: 2rem 4rem 0 2rem;
     border: none;
     background-color: unset;
     line-height: normal;
     font-family: "Open Sans", sans-serif;
     font-size: 0.875rem;
+    cursor: pointer;
   }
 
   &__button-container {
@@ -43,25 +56,32 @@
   &__header-button {
     border-radius: 50%;
     border: none;
-    box-shadow: rgba(180, 170, 151, 0.2) 0rem 0.125rem 0.5rem 0rem;
+    background-color: unset;
+    // box-shadow: rgba(180, 170, 151, 0.2) 0rem 0.125rem 0.5rem 0rem;
   }
 
   &__emergency-button {
-    background-image: linear-gradient(to top left, #fd5901, #faab36);
+    color: #fd5901;
   }
 
   &__button-icon {
-    color: white;
+    color: $app-turq-dark;
+    // color: #f78104;
+    font-size: 40px !important;
     padding: 0.8rem;
   }
 
+  &__main {
+    // overflow-y: scroll;
+  }
+
   &__info-button {
-    background-color: $app-turq-mid;
-    background-image: linear-gradient(
-      to bottom right,
-      $app-turq-light,
-      $app-turq-dark
-    );
+    // background-color: $app-turq-mid;
+    // background-image: linear-gradient(
+    //   to bottom right,
+    //   $app-turq-light,
+    //   $app-turq-dark
+    // );
   }
 
   &__title {
@@ -74,7 +94,7 @@
   }
 
   &__filter-button-container {
-    margin: 2rem 2rem 4rem;
+    margin: 2rem 3rem 3rem;
   }
 
   &__filter-icon {
@@ -83,12 +103,24 @@
     padding: 1.5rem;
   }
 
-  &__thermometer {
+  &__thermometer-container {
+    margin: 2rem;
+    margin-top: 0;
+    border-radius: 20px;
+    height: 33rem;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__thermometer {
+    padding: 5rem 4rem 5rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: auto;
-    gap: 1rem;
-    padding: 0 4rem 0 1rem;
+    gap: 2rem;
   }
 }
 
@@ -98,28 +130,30 @@
   margin-top: 2rem;
 
   &__container {
-    width: 8rem;
-    height: 3.5rem;
+    width: 10rem;
+    height: 4rem;
     display: flex;
     flex-direction: column;
     align-items: end;
   }
 
   &__level {
-    font-size: 1.25rem;
+    font-size: 23px;
     font-family: "Open Sans", sans-serif;
-    font-weight: 500;
+    font-weight: 600;
     color: $app-light-grey;
+    color: #99afaf;
     cursor: pointer;
   }
 
   &__description {
     font-family: "Open Sans", sans-serif;
     font-weight: 400;
-    font-size: 0.625rem;
-    line-height: 0.75rem;
+    font-size: 14px;
+    line-height: 16px;
     color: rgb(180, 170, 151);
     color: $app-light-grey;
+    color: grey;
     text-align: end;
     font-style: italic;
   }

@@ -4,6 +4,7 @@
   height: auto;
   width: 100%;
   background-color: $app-turq-mid;
+  // background-color: #ff9f6b;
   color: white;
   border: none;
   border-radius: 0.3125rem;
@@ -16,13 +17,14 @@
 
   &:hover {
     background-color: $app-turq-dark;
+    // background-color: #03749c;
   }
 
   &__text {
     font-family: "Open Sans", sans-serif;
     font-weight: 400;
-    font-size: 0.875rem;
-    line-height: 0.875rem;
+    font-size: 18px;
+    line-height: 18px;
     color: white;
   }
 }

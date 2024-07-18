@@ -111,7 +111,7 @@ function FilterQuestion({ questionId, isOpen, closeModal, color }) {
             ></Button>
           )}
           <SkillModal
-            contentLabel={`Technique Modal ${questionId}`}
+            contentLabel={`Tool Modal ${questionId}`}
             isOpen={isSkillModalOpen}
             closeModal={closeSkillModal}
             modalType={question.modaltype}
@@ -122,7 +122,7 @@ function FilterQuestion({ questionId, isOpen, closeModal, color }) {
             className="filter-question__skip-link"
             to={`/skills/intensity/${question.intensitypath}`}
           >
-            See all {question.intensity} techniques
+            See all {question.intensity} tools
           </Link>
         </div>
       </Modal>

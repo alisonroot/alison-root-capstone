@@ -7,13 +7,14 @@ import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import SosRoundedIcon from "@mui/icons-material/SosRounded";
 import TextField from "@mui/material/TextField";
 import EditNoteRoundedIcon from "@mui/icons-material/EditNoteRounded";
+import EditRoundedIcon from "@mui/icons-material/EditRounded";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 function EmergencyPage() {
   const navigate = useNavigate();
   const [emergencyPlan, setEmergencyPlan] = useState(null);
-  const [isEmergencyModalOpen, setIsEmergencyModalOpen] = useState(false);
+  const [isEmergencyModalOpen, setIsEmergencyModalOpen] = useState(true);
 
   const openEmergencyModal = () => {
     setIsEmergencyModalOpen(true);
@@ -60,13 +61,13 @@ function EmergencyPage() {
           >
             <ArrowBackRoundedIcon className="emergency-page__back-icon" />
           </button>
-          <h1 className="emergency-page__title">Emergency Plan</h1>
+          <h1 className="emergency-page__title">Get Support Now</h1>
         </div>
         <button
           className="emergency-page__emergency-button"
           onClick={handleEmergencyClick}
         >
-          <SosRoundedIcon className="emergency-page__button-icon" />
+          <p className="emergency-page__stop-button">STOP Tool</p>
         </button>
       </div>
       <div className="emergency-page__container">
@@ -96,10 +97,12 @@ function EmergencyPage() {
         </div>
         <div className="emergency-page__section">
           <div className="emergency-page__plan-top">
-            <h2 className="emergency-page__section-header">Saved Plan</h2>
+            <h2 className="emergency-page__section-header">
+              Your Emergency Plan
+            </h2>
             <Link className="emergency-page__edit-link" to={"/emergency/plan"}>
-              <EditNoteRoundedIcon className="emergency-page__edit-icon" />
-              {emergencyPlan ? "Edit" : "Create"}
+              <EditRoundedIcon className="emergency-page__edit-icon" />
+              {/* {emergencyPlan ? "Edit" : "Create"} */}
             </Link>
           </div>
           {emergencyPlan && (
@@ -371,7 +374,7 @@ function EmergencyPage() {
         isOpen={isEmergencyModalOpen}
         closeModal={closeEmergencyModal}
         modalType="stop"
-        closeText="RETURN TO EMERGENCY PLAN"
+        closeText="CLOSE"
         onClick={closeEmergencyModal}
       />
     </div>

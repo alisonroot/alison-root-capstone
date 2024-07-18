@@ -88,15 +88,20 @@ function SkillModal({
         <div className="skill-modal__section">
           <h3 className="skill-modal__subheader">Stop</h3>
           <p>
-            Pause the situation or the impulsive reaction. Take a moment to
-            recognize and acknowledge the initial impulse.
+            When you feel that your emotions seem to be in control, stop! Don’t
+            react. Don’t move a muscle. Freezing for a moment helps prevent you
+            from doing what your emotions want you to do (which is to act
+            without thinking). Stay in control. Remember, you are the boss of
+            your emotions.
           </p>
         </div>
         <div className="skill-modal__section">
           <h3 className="skill-modal__subheader">Take a Step Back</h3>
           <p>
-            Step back mentally and create a space between the impulse and your
-            reaction. Gain perspective on the situation.
+            Take a step back from the situation. Get unstuck from what is going
+            on. Take a deep breath and continue breathing deeply as long as you
+            need and until you are in control. Do not let your emotions control
+            what you do.
           </p>
         </div>
         <div className="skill-modal__section">
@@ -109,9 +114,12 @@ function SkillModal({
         <div className="skill-modal__section">
           <h3 className="skill-modal__subheader">Proceed Mindfully</h3>
           <p>
-            After pausing, stepping back, and observing, choose a response that
-            aligns with your values and goals. Proceed with clarity and
-            intention.
+            Ask yourself, “What do I want from this situation?” or “What are my
+            goals?” or “What choice might make this situation better or worse?”
+            or “What act will allow for success?” Stay calm, stay in control,
+            and when you have some information and how that may impact your
+            goals, you will be better prepared to deal with the situation
+            effectively. Proceed with clarity and intention.
           </p>
         </div>
       </div>

@@ -16,7 +16,7 @@
     "id": "2",
     "intensity": "breathing and grounding",
     "intensitypath": "low",
-    "question": "Would you prefer breathing exercises or grounding techniques?",
+    "question": "Would you prefer breathing exercises or grounding tools?",
     "button1": "Breathing",
     "button1path": "/skills/category/breathing",
     "button1icon": "AirIcon",

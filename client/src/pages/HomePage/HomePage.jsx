@@ -14,6 +14,7 @@ import ButtonColour from "../../components/ButtonColour/ButtonColour";
 import SkillModal from "../../components/SkillModal/SkillModal";
 import MostUsedSkills from "../../components/MostUsedSkills/MostUsedSkills";
 import MostRecentlyOpenedSkills from "../../components/MostRecentlyOpenedSkills/MostRecentlyOpenedSkills";
+import ReportProblemRoundedIcon from "@mui/icons-material/ReportProblemRounded";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -26,6 +27,7 @@ function HomePage() {
   const [currentQuestionId, setCurrentQuestionId] = useState(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
+  const [bottomDrawerOpen, setBottomDrawerOpen] = useState(false);
 
   const { logout } = useAuth();
 
@@ -50,7 +52,7 @@ function HomePage() {
         }
       );
 
-      setMostOpenedSkills(mostOpenedResponse.data.slice(0, 5));
+      setMostOpenedSkills(mostOpenedResponse.data.slice(0, 3));
       setRecentlyOpenedSkills(recentlyOpenedResponse.data.slice(0, 5));
     } catch (error) {
       console.error("Error fetching skills:", error);
@@ -115,6 +117,10 @@ function HomePage() {
     setIsInfoModalOpen(false);
   };
 
+  const toggleBottomDrawer = () => {
+    setBottomDrawerOpen((prev) => !prev);
+  };
+
   return (
     <main className="home-page">
       <div className="home-page__header">
@@ -127,77 +133,110 @@ function HomePage() {
             role="presentation"
             onClick={toggleDrawer(false)}
           >
-            <ul>
-              <li>
-                <button
-                  className="home-page__logout-button"
-                  onClick={handleLogout}
-                >
-                  Sign out
-                </button>
-              </li>
-            </ul>
+            <button
+              className="home-page__logout-button"
+              onClick={openInfoModal}
+            >
+              <p className="home-page__drawer-link">Learn more</p>
+            </button>
+            <Link className="emergency-page__edit-link" to={"/emergency/plan"}>
+              <p className="home-page__drawer-link">Edit emergency plan</p>
+              {/* {emergencyPlan ? "Edit" : "Create"} */}
+            </Link>
+            <button className="home-page__logout-button" onClick={handleLogout}>
+              <p className="home-page__drawer-link">Sign out</p>
+            </button>
           </div>
         </Drawer>
         <div className="home-page__button-container">
-          <button
+          {/* <button
             className="home-page__header-button home-page__info-button"
             onClick={openInfoModal}
           >
             <InfoOutlinedIcon className="home-page__button-icon" />
-          </button>
+          </button> */}
           <button
             className="home-page__header-button home-page__emergency-button"
             onClick={handleEmergencyClick}
           >
-            <SosRoundedIcon className="home-page__button-icon" />
+            <ReportProblemRoundedIcon className="home-page__button-icon" />
           </button>
         </div>
       </div>
-      <div className="home-page__thermometer">
-        <div className="intensity-label">
-          {intensityLevels.map((level, index) => (
-            <div
-              className="intensity-label__container"
-              key={index}
-              onClick={() => handleLabelClick(level.threshold)}
-            >
-              <h2
-                className="intensity-label__level"
-                style={{
-                  color:
-                    selectedIntensity.label === level.label ? level.color : "",
-                }}
-              >
-                {level.label}
-              </h2>
-              {selectedIntensity.label === level.label && (
-                <p className="intensity-label__description">
-                  {level.description}
-                </p>
-              )}
+      <div className="home-page__main">
+        <div className="home-page__thermometer-container">
+          <div className="home-page__thermometer">
+            <div className="intensity-label">
+              {intensityLevels.map((level, index) => (
+                <div
+                  className="intensity-label__container"
+                  key={index}
+                  onClick={() => handleLabelClick(level.threshold)}
+                >
+                  <h2
+                    className="intensity-label__level"
+                    style={{
+                      color:
+                        selectedIntensity.label === level.label
+                          ? level.color
+                          : "",
+                    }}
+                  >
+                    {level.label}
+                  </h2>
+                  {selectedIntensity.label === level.label && (
+                    <p className="intensity-label__description">
+                      {level.description}
+                    </p>
+                  )}
+                </div>
+              ))}
             </div>
-          ))}
+            <Thermometer
+              className="thermometer"
+              intensity={intensity}
+              onChange={handleChange}
+            />
+            <div className="home-page__thermometer-fill-box"></div>
+          </div>
         </div>
-        <Thermometer
-          className="thermometer"
-          intensity={intensity}
-          onChange={handleChange}
-        />
-        <div className="home-page__thermometer-fill-box"></div>
+        <div className="home-page__filter-button-container">
+          <ButtonColour
+            onClick={handleButtonClick}
+            buttonText="See suggested tools"
+            extraClass="home-page__filter-button"
+          />
+        </div>
+        <MostRecentlyOpenedSkills skills={recentlyOpenedSkills} />
+        <MostUsedSkills skills={mostOpenedSkills} />
+        {/* link to favourites */}
       </div>
-      <div className="home-page__filter-button-container">
-        <ButtonColour
-          onClick={handleButtonClick}
-          buttonText="See suggested techniques"
-          extraClass="home-page__filter-button"
-        />
-        <Link to={"/exercises/saved"}>Saved Exercises</Link>
-        <Link to={"/exercises/behaviour"}>Behaviour Exercise</Link>
-        <Link to={"/exercises/feelings"}>Feelings Exercise</Link>
-      </div>
-      <MostUsedSkills skills={mostOpenedSkills} />
-      <MostRecentlyOpenedSkills skills={recentlyOpenedSkills} />
+      {/* <SwipeableDrawer
+        // container={container}
+        anchor="bottom"
+        open={open}
+        onClose={toggleDrawer(false)}
+        onOpen={toggleDrawer(true)}
+        // swipeAreaWidth={drawerBleeding}
+        disableSwipeToOpen={false}
+        ModalProps={{
+          keepMounted: true,
+        }}
+      >
+        <div className="bottom-drawer__puller"></div>
+        <div className="bottom-drawer__visible-part"></div>
+      </SwipeableDrawer> */}
+      {/* <div
+        className={`bottom-drawer ${
+          bottomDrawerOpen ? "bottom-drawer--open" : ""
+        }`}
+        onClick={toggleBottomDrawer}
+      >
+        <div className="bottom-drawer__puller"></div>
+        <div className="bottom-drawer__content">
+          <h2>51 results</h2>
+        </div>
+      </div> */}
       <FilterQuestion
         isOpen={isQuestionModalOpen}
         closeModal={closeQuestionModal}

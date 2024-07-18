@@ -1,0 +1,103 @@
+@use "../../styles/partials/variables" as *;
+
+.exercise-list {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 4.25rem);
+  width: 100vw;
+
+  &__header {
+    border-bottom: 0.0625rem solid lightgrey;
+    display: flex;
+    padding: 2rem;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 1.75rem;
+  }
+
+  &__container {
+    padding: 2rem;
+    overflow-y: scroll;
+  }
+
+  &__form-container {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  &__form-link {
+    &:link,
+    &:visited {
+      color: black;
+      text-decoration: none;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      gap: 0.75rem;
+      //   align-items: center;
+      height: 9rem;
+      background-color: #249ea0;
+      // background-color: #03749c;
+      border-radius: 20px;
+      padding: 1.5rem;
+      padding-top: 1.5rem;
+      box-shadow: rgba(180, 170, 151, 0.2) 0rem 0.125rem 0.5rem 0rem;
+    }
+
+    &:hover {
+      background-color: $app-turq-dark;
+    }
+  }
+
+  &__form-top {
+    display: flex;
+  }
+
+  &__form-type {
+    color: white;
+    font-size: 21px;
+    font-weight: 600;
+  }
+
+  &__edit-icon {
+    color: white;
+  }
+
+  &__form-explanation {
+    color: white;
+    font-size: 15px;
+  }
+
+  &__section-header {
+    font-size: 24px;
+    margin-top: 2rem;
+    font-weight: 500;
+  }
+
+  &__item {
+    border: 2px solid lightgrey;
+    // box-shadow: rgba(180, 170, 151, 0.2) 0rem 0.125rem 0.5rem 0rem;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      color: black;
+      text-decoration: none;
+    }
+  }
+
+  &__type {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+}

@@ -104,7 +104,7 @@ function SkillsLibrary() {
         }
       );
 
-      if (location.pathname === "/skills/favourites") {
+      if (location.pathname === "/favourites") {
         fetchFavouriteSkills();
       } else if (category) {
         fetchSkillsByCategory(category);
@@ -129,7 +129,7 @@ function SkillsLibrary() {
         },
       });
 
-      if (location.pathname === "/skills/favourites") {
+      if (location.pathname === "/favourites") {
         fetchFavouriteSkills();
       } else if (category) {
         fetchSkillsByCategory(category);
@@ -145,7 +145,7 @@ function SkillsLibrary() {
   };
 
   useEffect(() => {
-    if (location.pathname === "/skills/favourites") {
+    if (location.pathname === "/favourites") {
       fetchFavouriteSkills();
     } else if (category) {
       fetchSkillsByCategory(category);
@@ -161,18 +161,18 @@ function SkillsLibrary() {
   }
 
   let headerText;
-  if (location.pathname === "/skills/favourites") {
-    headerText = "Favourite Techniques";
+  if (location.pathname === "/favourites") {
+    headerText = "Favourite Tools";
   } else if (category) {
-    headerText = "Recommended Techniques";
+    headerText = "Recommended Tools";
   } else if (intensity) {
-    headerText = "Techniques by Intensity Level";
+    headerText = "Tools by Intensity Level";
   } else {
-    headerText = "All Techniques Library";
+    headerText = "All Tools Library";
   }
 
   let backLink;
-  if (location.pathname === "/skills/favourites") {
+  if (location.pathname === "/favourites") {
     backLink = null;
   } else if (category) {
     backLink = "/";
@@ -204,12 +204,12 @@ function SkillsLibrary() {
               handleUnfavouriteSkill={handleUnfavouriteSkill}
             />
           ))
-        ) : location.pathname === "/skills/favourites" ? (
+        ) : location.pathname === "/favourites" ? (
           <p className="skills-library__no-favourites">
-            You haven't favourited any techniques yet.
+            You haven't favourited any tools yet.
           </p>
         ) : (
-          <p>No techniques found.</p>
+          <p>No tools found.</p>
         )}
       </div>
     </div>

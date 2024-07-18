@@ -8,12 +8,12 @@
   padding: 2rem;
   z-index: 10000;
   align-items: center;
-  background-color: $app-turq-light;
+  background-color: $app-turq-mid;
+  // background-color: #86c5c6;
 
   &__logo {
-    font-weight: 400;
-    font-size: 2.25rem;
-    margin-top: 4rem;
+    width: 15rem;
+    margin-top: 7rem;
   }
 
   &__form {
@@ -27,6 +27,7 @@
 
   &__title {
     font-weight: 600;
+    color: white;
   }
 
   &__button {
@@ -44,11 +45,12 @@
     &:visited,
     &:active {
       color: #016465;
+      color: white;
       text-decoration: none;
     }
 
     &:hover {
-      color: #fd5901;
+      color: #016465;
     }
   }
 }

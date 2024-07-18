@@ -1,0 +1,59 @@
+@use "../../styles/partials/variables" as *;
+
+.recent-skills {
+  padding: 2rem;
+  // margin-bottom: 2rem;
+
+  &__title {
+    font-weight: 600;
+    color: $almost-black;
+    color: #005254;
+    font-size: 24px;
+    margin-left: 1rem;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    overflow-x: scroll;
+    // scroll-snap-type: x mandatory; /* Snap to each card */
+    padding-bottom: 20px; /* Space for the scrollbar */
+    margin-bottom: -20px; /* Adjust for scrollbar space */
+
+    /* Hide the scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__link {
+    flex: 0 0 5.5rem;
+    color: black;
+    text-decoration: none;
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    height: 5rem;
+    background-color: #86c5c6;
+    opacity: 0.8;
+    border-radius: 20px;
+    padding: 1rem;
+    padding-top: 1.5rem;
+    box-shadow: rgba(180, 170, 151, 0.2) 0rem 0.125rem 0.5rem 0rem;
+
+    &:hover {
+      background-color: $app-turq-mid;
+    }
+  }
+
+  &__name {
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+  }
+}

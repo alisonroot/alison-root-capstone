@@ -5,6 +5,7 @@ import axios from "axios";
 import { useAuth } from "../../hooks/useAuth";
 import { TextField } from "@mui/material";
 import ButtonColour from "../../components/ButtonColour/ButtonColour";
+import logo from "../../../public/logo-white.png";
 
 function Login() {
   const [error, setError] = useState(null);
@@ -46,7 +47,7 @@ function Login() {
 
   return (
     <main className="login">
-      <h2 className="register__logo">wiser mind</h2>
+      <img className="login__logo" src={logo} alt="" />
       <form className="login__form" onSubmit={handleSubmit}>
         <h1 className="login__title">Log In</h1>
         <TextField

@@ -23,7 +23,7 @@
   {
     "label": "Low",
     "color": "#249ea0",
-    "description": "Grounding and breathing techniques",
+    "description": "Grounding and breathing tools",
     "threshold": 30,
     "questionId": "2"
   },

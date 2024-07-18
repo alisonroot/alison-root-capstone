@@ -25,7 +25,7 @@ function NavBar() {
             </>
           )}
         </NavLink>
-        <NavLink className="nav-bar__link" to={"/skills/all"}>
+        <NavLink className="nav-bar__link" to={"/skills"}>
           {({ isActive }) => (
             <>
               {isActive ? (
@@ -37,7 +37,7 @@ function NavBar() {
             </>
           )}
         </NavLink>
-        <NavLink className="nav-bar__link" to={"/skills/favourites"}>
+        <NavLink className="nav-bar__link" to={"/favourites"}>
           {({ isActive }) => (
             <>
               {isActive ? (
@@ -49,7 +49,7 @@ function NavBar() {
             </>
           )}
         </NavLink>
-        <NavLink className="nav-bar__link" to={"/emergency/plan"}>
+        <NavLink className="nav-bar__link" to={"/exercises"}>
           {({ isActive }) => (
             <>
               {isActive ? (
@@ -57,7 +57,7 @@ function NavBar() {
               ) : (
                 <ListOutlinedIcon className="nav-bar__icon" />
               )}
-              <p className="nav-bar__text">Planning</p>
+              <p className="nav-bar__text">Exercises</p>
             </>
           )}
         </NavLink>

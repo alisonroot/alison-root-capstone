@@ -1,4 +1,6 @@
-.saved-exercise-details {
+@use "../../styles/partials/variables" as *;
+
+.exercise-form {
   display: flex;
   flex-direction: column;
   height: calc(100vh - 4.25rem);
@@ -25,10 +27,6 @@
   &__title {
     font-weight: 500;
     font-size: 1.75rem;
-  }
-
-  &__date {
-    margin-top: 0.5rem;
   }
 
   &__input-section {

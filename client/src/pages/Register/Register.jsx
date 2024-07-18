@@ -5,6 +5,7 @@ import axios from "axios";
 import { useAuth } from "../../hooks/useAuth";
 import { TextField } from "@mui/material";
 import ButtonColour from "../../components/ButtonColour/ButtonColour";
+import logo from "../../../public/logo-white.png";
 
 function Register() {
   const [error, setError] = useState(null);
@@ -64,7 +65,7 @@ function Register() {
 
   return (
     <main className="register">
-      <h2 className="register__logo">wiser mind</h2>
+      <img className="login__logo" src={logo} alt="" />
       <form className="register__form" onSubmit={handleSubmit}>
         <h1 className="register__title">Create an Account</h1>
         <TextField

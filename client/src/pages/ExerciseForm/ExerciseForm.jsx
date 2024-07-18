@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import "./ExercisePage.scss";
+import "./ExerciseForm.scss";
 import TextField from "@mui/material/TextField";
 import ButtonColour from "../../components/ButtonColour/ButtonColour";
 import exerciseQuestions from "../../data/exercise-questions.json";
@@ -56,43 +56,47 @@ function ExercisePage() {
   };
 
   return (
-    <form className="exercise-page" onSubmit={handleSubmit}>
-      <div className="exercise-page__header">
-        <h1 className="exercise-page__title">
-          {" "}
-          {formType === "behaviour"
-            ? "Behaviour Solution Analysis"
-            : "Feelings Model"}
-        </h1>
-        <button
-          className="emergency-page__back-button"
-          onClick={handleBackClick}
-        >
-          <ArrowBackRoundedIcon className="emergency-page__back-icon" />
-        </button>
+    <form className="exercise-form" onSubmit={handleSubmit}>
+      <div className="exercise-form__header">
+        <div className="skill-details__header-text">
+          <button
+            className="emergency-page__back-button"
+            onClick={handleBackClick}
+          >
+            <ArrowBackRoundedIcon className="emergency-page__back-icon" />
+          </button>
+          <h1 className="exercise-form__title">
+            {" "}
+            {formType === "behaviour"
+              ? "Behaviour Chain Analysis"
+              : "Model of Emotions"}
+          </h1>
+        </div>
       </div>
-      <div className="exercise-page__input-section">
-        {questions.map((question) => (
-          <TextField
-            key={question.id}
-            multiline
-            rows={4}
-            variant="outlined"
-            label={question.title}
-            helperText={question.helperText}
-            className="exercise-page__input"
-            id={question.id}
-            value={formData[question.id] || ""}
-            onChange={handleInputChange}
-          />
-        ))}
+      <div className="exercise-form__input-section">
+        <div className="exercise-form__container">
+          {questions.map((question) => (
+            <TextField
+              key={question.id}
+              multiline
+              rows={4}
+              variant="outlined"
+              label={question.title}
+              helperText={question.helperText}
+              className="exercise-form__input"
+              id={question.id}
+              value={formData[question.id] || ""}
+              onChange={handleInputChange}
+            />
+          ))}
+        </div>
+        <ButtonColour
+          onClick={handleSubmit}
+          buttonText="Save"
+          extraClass="exercise-form__submit-button"
+          type="submit"
+        />
       </div>
-      <ButtonColour
-        onClick={handleSubmit}
-        buttonText="Save"
-        extraClass="exercise-page__submit-button"
-        type="submit"
-      />
     </form>
   );
 }

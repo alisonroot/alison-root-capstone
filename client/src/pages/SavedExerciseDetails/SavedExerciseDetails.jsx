@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { TextField } from "@mui/material";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import "./SavedExerciseDetails.scss";
+import exerciseQuestions from "../../data/exercise-questions.json";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -44,6 +45,26 @@ function SavedExerciseDetails() {
     navigate(-1);
   };
 
+  let questionKey;
+  if (formType === "behaviour") {
+    questionKey = "behaviourSolutionAnalysis";
+  } else if (formType === "feelings") {
+    questionKey = "feelingsModel";
+  } else {
+    console.error("Invalid formType:", formType);
+    return <p>Invalid formType</p>;
+  }
+
+  // console.log(exercise);
+
+  const { data, exerciseType, created_at } = exercise;
+
+  const questions = exerciseQuestions[questionKey] || [];
+
+  console.log("formType:", formType);
+  console.log("exerciseQuestions:", exerciseQuestions);
+  console.log("questions:", questions);
+
   return (
     <div className="saved-exercise-details">
       <div className="saved-exercise-details__header">
@@ -54,25 +75,30 @@ function SavedExerciseDetails() {
           >
             <ArrowBackRoundedIcon className="saved-exercise-details__back-icon" />
           </button>
-          <h1 className="saved-exercise-details__header">
-            {exercise.exerciseType}
-          </h1>
+          <div>
+            <h1 className="saved-exercise-details__title">{exerciseType}</h1>
+            <p className="saved-exercise-details__date">
+              Completed on {new Date(created_at).toLocaleDateString()}
+            </p>
+          </div>
         </div>
-        <p>Created on {new Date(exercise.created_at).toLocaleDateString()}</p>
       </div>
-      <div className="saved-exercise-details">
-        {Object.keys(exercise).map((key) => (
-          <TextField
-            key={key}
-            label={key}
-            value={exercise[key]}
-            InputProps={{
-              readOnly: true,
-            }}
-            fullWidth
-            margin="normal"
-          />
-        ))}
+      <div className="saved-exercise-details__input-section">
+        <div className="saved-exercise-details__container">
+          {questions.map((question) => (
+            <TextField
+              key={question.title}
+              label={question.title}
+              helperText={question.helperText}
+              value={data[question.id]}
+              InputProps={{
+                readOnly: true,
+              }}
+              fullWidth
+              margin="normal"
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
